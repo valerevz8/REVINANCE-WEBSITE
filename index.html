@@ -171,7 +171,7 @@ function updatePrice(){const free=document.querySelector("[data-price-free]"),pr
 document.getElementById("langToggle").addEventListener("click",()=>applyLanguage(language==="id"?"en":"id"));
 document.querySelectorAll("[data-billing]").forEach(btn=>btn.addEventListener("click",()=>{billing=btn.dataset.billing;updatePrice();document.querySelectorAll("[data-billing]").forEach(b=>b.classList.toggle("active",b===btn))}));
 const nav=document.getElementById("nav");const navScroll=()=>nav.classList.toggle("scrolled",window.scrollY>18);window.addEventListener("scroll",navScroll,{passive:true});navScroll();
-if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el))}else document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));
+if("IntersectionObserver" in window&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible")}else{entry.target.classList.remove("visible")}}),{threshold:.16,rootMargin:"0px 0px -4% 0px"});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el))}else document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));
 applyLanguage("id");
 </script>
 </body>
