@@ -435,6 +435,52 @@ summary:hover{color:var(--taupe)}
   vertical-align:middle!important;
 }
 
+
+/* Final layout corrections — explicit column wrapper makes centering unambiguous. */
+.comparison-table thead th.compare-basic-heading{
+  text-align:center!important;
+  padding-left:0!important;
+  padding-right:0!important;
+  vertical-align:middle!important;
+}
+.comparison-table thead th.compare-basic-heading span{
+  display:block!important;
+  width:100%!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+  padding:0 8px!important;
+  box-sizing:border-box!important;
+}
+
+/* Return the data-to-decisions section to the dark canvas. */
+.intelligence-section{
+  background:#252525!important;
+  color:#f8f4ee!important;
+}
+.intelligence-section .eyebrow{color:#c5b49d!important}
+.intelligence-section .eyebrow:before{background:#ad8959!important}
+.intelligence-head h2{color:#f8f4ee!important}
+.intelligence-head h2 .gold{color:#ad8959!important}
+.intelligence-head>p{color:#c5bdb1!important}
+.intelligence-card{
+  background:rgba(248,244,238,.075)!important;
+  border-color:rgba(248,244,238,.16)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 12px 30px rgba(0,0,0,.12)!important;
+}
+.intelligence-card:hover{background:rgba(248,244,238,.11)!important}
+.intelligence-card h3{color:#f8f4ee!important}
+.intelligence-card p{color:#d0c7ba!important}
+
+/* The manifesto / from-records-to-understanding panel uses brand vanilla, not dune. */
+section.section.section-light#approach{
+  background:#f8f4ee!important;
+  color:#252525!important;
+}
+section.section.section-light#approach .big-copy{color:#252525!important}
+section.section.section-light#approach .big-copy span{color:#92765a!important}
+section.section.section-light#approach .body-copy{color:#6f675e!important}
+section.section.section-light#approach .eyebrow{color:#75634e!important}
+
 </style>
 </head>
 <body>
@@ -508,7 +554,7 @@ summary:hover{color:var(--taupe)}
 
 <section class="section comparison-section" id="comparison"><div class="wrap">
   <div class="section-head reveal"><div><div class="eyebrow" data-i18n="compareEyebrow">LESS ADMIN. MORE CLARITY.</div><h2 data-i18n-html="compareTitle">A simpler way to manage<br><span class="gold">your whole money picture.</span></h2></div><p data-i18n="compareIntro">See how a connected finance system compares with building your own spreadsheets or using a basic expense tracker.</p></div>
-  <div class="comparison-wrap reveal"><table class="comparison-table"><thead><tr><th data-i18n="compareFeature">WHAT YOU NEED</th><th class="compare-highlight"><span class="compare-brand">✦ REVINANCE</span><small data-i18n="compareAllInOne">Connected finance system</small></th><th data-i18n="compareSheet">Spreadsheet</th><th data-i18n="compareBasic">Basic expense tracker</th></tr></thead><tbody>
+  <div class="comparison-wrap reveal"><table class="comparison-table"><thead><tr><th data-i18n="compareFeature">WHAT YOU NEED</th><th class="compare-highlight"><span class="compare-brand">✦ REVINANCE</span><small data-i18n="compareAllInOne">Connected finance system</small></th><th data-i18n="compareSheet">Spreadsheet</th><th class="compare-basic-heading"><span data-i18n="compareBasic">Basic expense tracker</span></th></tr></thead><tbody>
     <tr><th data-i18n="compareRow1">Fast capture (receipt, voice, split bill)</th><td class="compare-highlight"><span class="compare-yes">✓</span></td><td data-i18n="compareManual">Manual setup / entry</td><td data-i18n="compareVaries">Depends on the app</td></tr>
     <tr><th data-i18n="compareRow2">Budgets & safe-to-spend</th><td class="compare-highlight"><span class="compare-yes">✓</span></td><td data-i18n="compareBuild">Build your own formulas</td><td data-i18n="compareBasicBudget">Often basic budgets</td></tr>
     <tr><th data-i18n="compareRow3">AI context with Ask Revi</th><td class="compare-highlight"><span class="compare-yes">✓</span></td><td data-i18n="compareSeparate">Separate tools / manual analysis</td><td data-i18n="compareDepends">Depends on the app</td></tr>
