@@ -385,6 +385,56 @@ summary:hover{color:var(--taupe)}
 /* The reminder preview no longer shows the clipped footer caption. */
 .reminder-foot{display:none!important}
 
+
+/* Layout pass requested: vanilla panels and restrained bronze accents */
+.closing{
+  background:var(--vanilla)!important;
+}
+.closing h2 .gold{
+  color:#92765a!important;
+}
+
+/* The full data-to-decisions section now uses the brand vanilla surface. */
+.intelligence-section{
+  background:var(--vanilla)!important;
+  color:var(--ink)!important;
+}
+.intelligence-section .eyebrow{color:#75634e!important}
+.intelligence-section .eyebrow:before{background:#ad8959!important}
+.intelligence-head h2 .gold{color:#92765a!important}
+.intelligence-head>p{color:#6f675e!important}
+.intelligence-card{
+  background:rgba(255,253,250,.72)!important;
+  border-color:rgba(68,58,53,.14)!important;
+  box-shadow:0 12px 30px rgba(37,37,37,.045),inset 0 1px 0 rgba(255,255,255,.72)!important;
+}
+.intelligence-card:hover{
+  background:#fffdfa!important;
+  border-color:rgba(68,58,53,.22)!important;
+}
+.intelligence-card h3{color:var(--ink)!important}
+.intelligence-card p{color:#6f675e!important}
+.intelligence-visual{
+  background:var(--vanilla)!important;
+  border-color:rgba(68,58,53,.12)!important;
+}
+.mini-chart-head b{color:#ad8959!important}
+.mini-bars i{background:linear-gradient(180deg,#ad8959,#92765a)!important}
+.mini-bars i:nth-child(even){background:#c5b49d!important}
+.obligations-visual,.plan-visual{background:var(--vanilla)!important}
+.obligation-head{color:#75634e!important}
+.obligation-dot{background:#ad8959!important}
+.plan-ring{border-color:#ad8959!important}
+
+/* Explicitly center the final comparison column heading; override base table rules. */
+.comparison-table thead th:last-child,
+.comparison-table thead th[data-i18n="compareBasic"]{
+  text-align:center!important;
+  padding-left:12px!important;
+  padding-right:12px!important;
+  vertical-align:middle!important;
+}
+
 </style>
 </head>
 <body>
