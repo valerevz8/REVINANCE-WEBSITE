@@ -17,6 +17,58 @@
 @media(max-width:760px){:root{--page:calc(100% - 40px)}.nav{height:70px}.nav-links{display:none}.nav-cta{padding:11px 13px;font-size:11px}.brand{font-size:14px}.brand-mark{width:25px;height:21px}.brand-wordmark{letter-spacing:.14em}.nav-actions{gap:8px}.hero{padding:62px 0 80px;min-height:auto}.hero-grid{grid-template-columns:1fr;gap:52px}.hero h1{font-size:clamp(57px,13vw,86px);margin-top:23px}.hero-copy>p{font-size:15px}.micro-proof{margin-top:30px}.preview-shell{transform:none;padding:9px;border-radius:20px;animation:rise .9s .18s var(--ease) both}.app-preview{padding:13px;min-height:0}.balance-card{min-height:145px;padding:15px}.balance-number{font-size:29px}.mini-card{padding:12px}.mini-value{font-size:17px}.preview-note{right:-3px;bottom:-23px;padding:11px 13px}.section{padding:83px 0}.section-head{display:block;margin-bottom:35px}.section-head p{margin-top:20px}.section h2{font-size:clamp(39px,10vw,58px)}.manifesto{grid-template-columns:1fr;gap:24px}.manifesto .big-copy{font-size:34px}.flow-grid{gap:9px}.flow-card{padding:19px;min-height:175px}.flow-card h3{font-size:19px;margin-top:25px}.feature-grid{grid-template-columns:1fr;gap:10px}.feature-card{min-height:0;padding:23px}.feature-card h3{margin-top:21px}.insight{padding:26px 21px;grid-template-columns:1fr;gap:16px}.pricing-intro{margin-bottom:32px}.pricing-grid{grid-template-columns:1fr;max-width:450px;margin:auto}.price-card{padding:27px}.faq-grid{grid-template-columns:1fr;gap:30px}.closing{padding:76px 0}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}.app-content{gap:8px}.transaction-row{font-size:9px}}
 @media(max-width:380px){:root{--page:calc(100% - 30px)}.lang{padding:8px}.nav-cta{font-size:10px;padding:10px}.hero h1{font-size:54px}.app-preview{padding:10px}.balance-number{font-size:26px}.flow-card{padding:15px}.flow-card h3{font-size:17px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+
+/* Refined motion system: calm, intentional, and accessible */
+:root{--motion-fast:220ms;--motion-smooth:720ms;--motion-slow:980ms}
+.brand-mark{filter:drop-shadow(0 2px 5px #0002);transition:transform .45s cubic-bezier(.2,.8,.2,1),filter .45s}
+.brand:hover .brand-mark{transform:translateY(-1px) scale(1.04);filter:drop-shadow(0 4px 8px #c5b49d33)}
+.hero-copy .eyebrow{animation:eyebrowReveal 850ms cubic-bezier(.16,1,.3,1) both}
+.hero h1{overflow:visible}
+.hero h1 .hero-line{display:inline-block;animation:heroLineReveal 1050ms cubic-bezier(.16,1,.3,1) both;will-change:transform,opacity}
+.hero h1 .hero-line:nth-child(2){animation-delay:150ms}
+.hero-copy>p{animation:copyReveal 900ms 360ms cubic-bezier(.16,1,.3,1) both}
+.hero-actions{animation:copyReveal 900ms 470ms cubic-bezier(.16,1,.3,1) both}
+.micro-proof{animation:copyReveal 900ms 560ms cubic-bezier(.16,1,.3,1) both}
+.preview-shell{transform-origin:center;transition:transform 900ms cubic-bezier(.2,.8,.2,1),box-shadow 900ms}
+.preview-shell:hover{transform:perspective(1400px) rotateY(-2deg) rotateX(1deg) translateY(-4px);box-shadow:0 48px 115px #0007}
+.app-preview{box-shadow:inset 0 1px 0 #fff9}
+.balance-card,.mini-card,.chart-card,.transactions{transition:transform 650ms cubic-bezier(.2,.8,.2,1),box-shadow 650ms,border-color 650ms}
+.preview-shell:hover .balance-card{transform:translateY(-2px)}
+.preview-shell:hover .mini-card{transform:translateY(-3px)}
+.preview-shell:hover .chart-card{transform:translateY(-2px)}
+.preview-shell:hover .transactions{transform:translateY(-1px)}
+.reveal{opacity:0;transform:translate3d(0,32px,0) scale(.99);filter:blur(2px);transition:opacity 800ms cubic-bezier(.16,1,.3,1),transform 850ms cubic-bezier(.16,1,.3,1),filter 850ms cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}
+.section-head.reveal,.pricing-intro.reveal{transition-duration:950ms}
+.feature-card.reveal{transition-delay:calc(var(--i,0)*85ms)}
+.feature-card{box-shadow:0 0 0 1px transparent;transition:transform 500ms cubic-bezier(.2,.8,.2,1),border-color 500ms,background 500ms,box-shadow 500ms}
+.feature-card:hover{box-shadow:0 18px 45px #0002}
+.insight-item{transition:transform 450ms cubic-bezier(.2,.8,.2,1),background 450ms,border-color 450ms}
+.insight-item:hover{transform:translateX(4px);background:#25252555;border-color:#e4ddcc42}
+.flow-card{transition:transform 500ms cubic-bezier(.2,.8,.2,1),background 500ms,box-shadow 500ms}
+.flow-card:hover{box-shadow:0 18px 35px #443a3510}
+.price-card{transition:transform 500ms cubic-bezier(.2,.8,.2,1),box-shadow 500ms}
+.price-card:hover{box-shadow:0 20px 55px #0002}
+details{transition:border-color 300ms}
+details[open]{border-color:#c5b49d77}
+summary{transition:color 250ms}
+summary:hover{color:var(--taupe)}
+/* Keep the Free card legible against its charcoal surface */
+.price-card:not(.featured){color:var(--vanilla)}
+.price-card:not(.featured) .plan-name{color:var(--vanilla)}
+.price-card:not(.featured) .plan-desc,
+.price-card:not(.featured) .price-period,
+.price-card:not(.featured) .price-note{color:#c5bdb1}
+.price-card:not(.featured) .price{color:#f8f4ee}
+.price-card:not(.featured) .feature-list li{color:#e4ddcc}
+.price-card:not(.featured) .btn.secondary{color:#f8f4ee;border-color:#c5b49d55}
+.price-card:not(.featured) .feature-list li:before{color:#d2b276}
+@keyframes heroLineReveal{from{opacity:0;transform:translate3d(0,36px,0);filter:blur(9px)}to{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}}
+@keyframes copyReveal{from{opacity:0;transform:translate3d(0,16px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes eyebrowReveal{from{opacity:0;transform:translate3d(-12px,0,0);letter-spacing:.28em}to{opacity:1;transform:translate3d(0,0,0);letter-spacing:.18em}}
+@media(max-width:760px){.hero h1 .hero-line{animation-duration:900ms}.reveal{transform:translate3d(0,22px,0) scale(.995);filter:none}.preview-shell:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.hero h1 .hero-line,.hero-copy .eyebrow,.hero-copy>p,.hero-actions,.micro-proof{animation:none!important}.reveal{filter:none;transform:none;transition:none;opacity:1}}
+
 </style>
 </head>
 <body>
@@ -29,7 +81,7 @@
 <section class="hero"><div class="wrap hero-grid">
 <div class="hero-copy">
 <div class="eyebrow" data-i18n="heroEyebrow">PERSONAL FINANCE INTELLIGENCE</div>
-<h1 class="serif" data-i18n-html="heroTitle">Lacak lebih sedikit.<br><span>Pahami lebih banyak.</span></h1>
+<h1 class="serif hero-title" data-i18n-html="heroTitle"><span class="hero-line">Lacak lebih sedikit.</span><br><span class="hero-line">Pahami lebih banyak.</span></h1>
 <p data-i18n="heroBody">Bukan sekadar mencatat pengeluaran. Pahami pola uangmu, lihat apa yang perlu diperhatikan, dan ambil keputusan finansial dengan lebih jelas.</p>
 <div class="hero-actions"><a class="btn" href="#pricing"><span data-i18n="heroPrimary">Kenali REVINANCE</span><span class="arrow">↗</span></a><a class="btn secondary" href="#approach" data-i18n="heroSecondary">Lihat cara kerjanya</a></div>
 <div class="micro-proof"><span class="proof-dot"></span><span data-i18n="heroFoot">Satu tempat untuk melihat gambaran uangmu lebih utuh.</span></div>
@@ -91,7 +143,7 @@
 const copy={
 id:{
 navApproach:"Pendekatan",navFeatures:"Fitur",navPricing:"Harga",navFaq:"FAQ",navCta:"Jelajahi Pro",
-heroEyebrow:"PERSONAL FINANCE INTELLIGENCE",heroTitle:"Lacak lebih sedikit.<br><span>Pahami lebih banyak.</span>",heroBody:"Bukan sekadar mencatat pengeluaran. Pahami pola uangmu, lihat apa yang perlu diperhatikan, dan ambil keputusan finansial dengan lebih jelas.",heroPrimary:"Kenali REVINANCE",heroSecondary:"Lihat cara kerjanya",heroFoot:"Satu tempat untuk melihat gambaran uangmu lebih utuh.",
+heroEyebrow:"PERSONAL FINANCE INTELLIGENCE",heroTitle:"<span class='hero-line'>Lacak lebih sedikit.</span><br><span class='hero-line'>Pahami lebih banyak.</span>",heroBody:"Bukan sekadar mencatat pengeluaran. Pahami pola uangmu, lihat apa yang perlu diperhatikan, dan ambil keputusan finansial dengan lebih jelas.",heroPrimary:"Kenali REVINANCE",heroSecondary:"Lihat cara kerjanya",heroFoot:"Satu tempat untuk melihat gambaran uangmu lebih utuh.",
 previewBalance:"TOTAL SALDO",previewMonth:"bulan ini",previewAllAccounts:"Semua akun",previewIncome:"PEMASUKAN",previewExpense:"PENGELUARAN",previewMonthLabel:"Bulan ini",previewCashflow:"Arus kas",previewRecent:"Transaksi terbaru",previewSeeAll:"Lihat semua ↗",previewFood:"Makanan · Hari ini",previewIncomeTag:"Pemasukan · Kemarin",noteTitle:"INSIGHT KEUANGANMU",noteMain:"Pengeluaran jadi fokus.",noteTag:"Gambaran lebih jelas, satu langkah demi satu.",
 approachEyebrow:"HUBUNGAN YANG LEBIH BAIK DENGAN UANG",approachBig:"Kamu tidak butuh lebih banyak noise.<br><span>Kamu butuh kejelasan.</span>",approachBody:"Keuangan pribadi sering terasa rumit bukan karena kamu tidak berusaha, tapi karena datanya tersebar dan sulit dibaca sebagai satu cerita. REVINANCE menyatukan aktivitas finansialmu agar kamu bisa memahami apa yang terjadi—dan menentukan langkah berikutnya.",
 flow1Title:"Catat dengan mudah",flow1Body:"Manual, scan struk, voice, atau split bill. Pilih cara yang paling natural.",flow2Title:"Pahami polanya",flow2Body:"Lihat pengeluaran, arus kas, kebiasaan, dan gambaran kesehatan finansial.",flow3Title:"Rencanakan langkah",flow3Body:"Buat budget, target tabungan, dan rencana investasi yang lebih terarah.",flow4Title:"Bangun kebiasaan finansial",flow4Body:"Tinjau progres dan gunakan pemahamanmu untuk membangun keputusan uang yang lebih konsisten.",
@@ -103,7 +155,7 @@ closingEyebrow:"BAB BERIKUTNYA",closingTitle:"Buat uang terasa<br>lebih sederhan
 },
 en:{
 navApproach:"Our approach",navFeatures:"Features",navPricing:"Pricing",navFaq:"FAQ",navCta:"Explore Pro",
-heroEyebrow:"PERSONAL FINANCE INTELLIGENCE",heroTitle:"Track less.<br><span>Understand more.</span>",heroBody:"More than expense tracking. Understand your patterns, see what deserves attention, and make clearer financial decisions.",heroPrimary:"Meet REVINANCE",heroSecondary:"See how it works",heroFoot:"One place to see your financial picture more clearly.",
+heroEyebrow:"PERSONAL FINANCE INTELLIGENCE",heroTitle:"<span class='hero-line'>Track less.</span><br><span class='hero-line'>Understand more.</span>",heroBody:"More than expense tracking. Understand your patterns, see what deserves attention, and make clearer financial decisions.",heroPrimary:"Meet REVINANCE",heroSecondary:"See how it works",heroFoot:"One place to see your financial picture more clearly.",
 previewBalance:"TOTAL BALANCE",previewMonth:"this month",previewAllAccounts:"All accounts",previewIncome:"INCOME",previewExpense:"EXPENSES",previewMonthLabel:"This month",previewCashflow:"Cash flow",previewRecent:"Recent transactions",previewSeeAll:"See all ↗",previewFood:"Food · Today",previewIncomeTag:"Income · Yesterday",noteTitle:"YOUR MONEY INSIGHT",noteMain:"Spending is in focus.",noteTag:"A clearer view, one step at a time.",
 approachEyebrow:"A BETTER RELATIONSHIP WITH MONEY",approachBig:"You don't need more noise.<br><span>You need clarity.</span>",approachBody:"Personal finance can feel complicated not because you aren't trying, but because the data is scattered and hard to read as one story. REVINANCE brings your financial activity together so you can understand what is happening—and decide what comes next.",
 flow1Title:"Track with ease",flow1Body:"Manual entry, receipt scan, voice, or split bills. Choose what feels natural.",flow2Title:"Understand patterns",flow2Body:"See spending, cash flow, habits, and a clearer view of financial health.",flow3Title:"Plan your next move",flow3Body:"Set budgets, saving goals, and more intentional investment plans.",flow4Title:"Build better money habits",flow4Body:"Review your progress and use what you learn to build more consistent financial decisions.",
