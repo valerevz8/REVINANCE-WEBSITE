@@ -481,6 +481,48 @@ section.section.section-light#approach .big-copy span{color:#92765a!important}
 section.section.section-light#approach .body-copy{color:#6f675e!important}
 section.section.section-light#approach .eyebrow{color:#75634e!important}
 
+
+/* Correct target section: the "From Records to Understanding" .insight panel. */
+.insight{
+  background:#F8F4EE!important;
+  color:#252525!important;
+  border:1px solid rgba(68,58,53,.10)!important;
+}
+.insight:after{
+  border-color:rgba(68,58,53,.06)!important;
+  box-shadow:0 0 0 40px rgba(68,58,53,.025),0 0 0 80px rgba(68,58,53,.018)!important;
+}
+.insight .eyebrow{color:#75634e!important}
+.insight .eyebrow:before{background:#AD8959!important}
+.insight h3{color:#252525!important}
+.insight h3 .gold{color:#92765A!important}
+.insight p{color:#5f574e!important}
+.insight-item{
+  background:rgba(255,253,250,.78)!important;
+  border-color:rgba(68,58,53,.14)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.78)!important;
+}
+.insight-item strong{color:#252525!important}
+.insight-item span{color:#62594f!important}
+.insight-item .check{color:#AD8959!important}
+.insight-item:hover{background:#fffdfa!important;border-color:rgba(68,58,53,.22)!important}
+
+/* Hard alignment fallback for the Basic expense tracker heading. */
+.comparison-table thead th.compare-basic-heading{
+  text-align:center!important;
+  text-align-last:center!important;
+  padding-inline:0!important;
+}
+.comparison-table thead th.compare-basic-heading [data-i18n="compareBasic"]{
+  display:block!important;
+  width:100%!important;
+  margin:0 auto!important;
+  padding:0 8px!important;
+  text-align:center!important;
+  text-align-last:center!important;
+  box-sizing:border-box!important;
+}
+
 </style>
 </head>
 <body>
@@ -616,7 +658,7 @@ faqEyebrow:"GOOD QUESTIONS",faqTitle:"Clarity starts<br>with the basics.",faqInt
 closingEyebrow:"YOUR NEXT CHAPTER",closingTitle:"Make money feel<br><span class='gold'>less complicated.</span>",closingBody:"Start by understanding where you are today. Then choose your next step with more confidence.",closingCta:"Find your plan",footerCopy:"© 2026 REVINANCE. Your money. Understood."
 }};
 let language="id",billing="monthly";
-function applyLanguage(next){language=next;document.documentElement.lang=next;document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(copy[next][key]!==undefined)el.textContent=copy[next][key]});document.querySelectorAll("[data-i18n-html]").forEach(el=>{const key=el.dataset.i18nHtml;if(copy[next][key]!==undefined)el.innerHTML=copy[next][key]});document.getElementById("langToggle").setAttribute("aria-label",next==="id"?"Switch to English":"Ganti ke Bahasa Indonesia");document.querySelectorAll("[data-billing]").forEach(btn=>btn.classList.toggle("active",btn.dataset.billing===billing));updatePrice()}
+function applyLanguage(next){language=next;document.documentElement.lang=next;document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(copy[next][key]!==undefined)el.textContent=copy[next][key]});document.querySelectorAll("[data-i18n-html]").forEach(el=>{const key=el.dataset.i18nHtml;if(copy[next][key]!==undefined)el.innerHTML=copy[next][key]});const basicHeader=document.querySelector(".comparison-table thead th.compare-basic-heading");if(basicHeader){basicHeader.style.setProperty("text-align","center","important");basicHeader.style.setProperty("vertical-align","middle","important");const basicLabel=basicHeader.querySelector("[data-i18n=\"compareBasic\"]");if(basicLabel){basicLabel.style.setProperty("display","block","important");basicLabel.style.setProperty("width","100%","important");basicLabel.style.setProperty("text-align","center","important");basicLabel.style.setProperty("box-sizing","border-box","important");}}document.getElementById("langToggle").setAttribute("aria-label",next==="id"?"Switch to English":"Ganti ke Bahasa Indonesia");document.querySelectorAll("[data-billing]").forEach(btn=>btn.classList.toggle("active",btn.dataset.billing===billing));updatePrice()}
 function updatePrice(){const free=document.querySelector("[data-price-free]"),pro=document.querySelector("[data-price-pro]"),period=document.querySelector("[data-price-period]"),note=document.querySelector("[data-price-note]");if(language==="id"){free.textContent="Rp0";pro.textContent=billing==="monthly"?"Rp39.000":"Rp399.000";period.textContent=billing==="monthly"?"/ bulan":"/ tahun";note.textContent=billing==="monthly"?"atau Rp399.000 / tahun":"setara Rp33.250 / bulan"}else{free.textContent="$0";pro.textContent=billing==="monthly"?"$7.99":"$79.99";period.textContent=billing==="monthly"?"/ month":"/ year";note.textContent=billing==="monthly"?"or $79.99 / year":"equivalent to $6.67 / month"}}
 document.getElementById("langToggle").addEventListener("click",()=>applyLanguage(language==="id"?"en":"id"));
 document.querySelectorAll("[data-billing]").forEach(btn=>btn.addEventListener("click",()=>{billing=btn.dataset.billing;updatePrice();document.querySelectorAll("[data-billing]").forEach(b=>b.classList.toggle("active",b===btn))}));
