@@ -849,6 +849,100 @@ body{background:#121212!important}
  .hero-dashboard-preview{width:min(100%,390px)!important;aspect-ratio:1 / 1.08;padding:12px!important}
 }
 
+
+/* Final visual pass: full dashboard preview, aligned currency panel, brand gold */
+.hero-dashboard-preview{
+  position:relative!important;
+  width:min(100%,580px)!important;
+  height:610px!important;
+  aspect-ratio:auto!important;
+  padding:12px!important;
+  display:block!important;
+  overflow:hidden!important;
+  border:1px solid rgba(197,180,157,.34)!important;
+  border-radius:30px!important;
+  background:linear-gradient(145deg,#292724 0%,#0a0a0a 68%)!important;
+  box-shadow:0 28px 80px rgba(0,0,0,.42),inset 0 1px 0 rgba(248,244,238,.08)!important;
+}
+.hero-dashboard-preview>img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-height:none!important;
+  object-fit:cover!important;
+  object-position:top center!important;
+  border-radius:20px 20px 0 0!important;
+  background:#050505!important;
+  box-shadow:none!important;
+}
+.hero-app-bottom-nav{
+  position:absolute;
+  z-index:3;
+  left:12px;
+  right:12px;
+  bottom:12px;
+  height:76px;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  align-items:center;
+  justify-items:center;
+  padding:0 12px;
+  border-top:1px solid rgba(248,244,238,.08);
+  border-radius:0 0 19px 19px;
+  background:linear-gradient(180deg,rgba(28,27,26,.96),rgba(13,13,13,.99));
+  box-shadow:0 -10px 30px rgba(0,0,0,.25);
+}
+.app-nav-symbol{
+  color:#aaa49b;
+  font-size:25px;
+  line-height:1;
+  font-weight:400;
+  opacity:.9;
+}
+.app-nav-brand{
+  width:58px;height:58px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:#e4ddcc;
+  box-shadow:0 0 24px rgba(200,168,107,.22);
+}
+.app-nav-brand img{
+  display:block;
+  width:39px;height:39px;
+  object-fit:contain;
+}
+.currency-support-new{
+  width:var(--page)!important;
+  max-width:1440px!important;
+  margin:54px auto 60px!important;
+  justify-self:stretch!important;
+  box-sizing:border-box!important;
+}
+.currency-support-new .currency-list{
+  width:100%!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+.price-card.featured .btn,
+.price-card.featured .btn:hover{
+  background:#A37644!important;
+  border-color:#A37644!important;
+  color:#17120d!important;
+}
+@media(max-width:1000px){
+  .hero-dashboard-preview{width:min(100%,520px)!important;height:580px!important}
+  .currency-support-new .currency-list{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:600px){
+  .hero-dashboard-preview{width:100%!important;height:min(145vw,590px)!important;aspect-ratio:auto!important;padding:8px!important;border-radius:23px!important}
+  .hero-dashboard-preview>img{border-radius:15px 15px 0 0!important}
+  .hero-app-bottom-nav{left:8px;right:8px;bottom:8px;height:64px;padding:0 7px;border-radius:0 0 15px 15px}
+  .app-nav-symbol{font-size:21px}
+  .app-nav-brand{width:49px;height:49px}
+  .app-nav-brand img{width:33px;height:33px}
+  .currency-support-new{width:var(--page)!important;margin:38px auto!important;padding:21px 17px!important}
+  .currency-support-new .currency-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
 </style>
 </head>
 <body>
@@ -867,7 +961,16 @@ body{background:#121212!important}
 <div class="micro-proof"><span class="proof-dot"></span><span data-i18n="heroFoot">Satu tempat untuk melihat gambaran uangmu lebih utuh.</span></div>
 </div>
 <div class="preview-wrap">
-<div class="preview-shell app-screen-shell hero-dashboard-preview"><img src="assets/screenshots/dashboard-safe-to-spend-v2.jpeg" alt="REVINANCE latest Daily dashboard showing Safe to Spend, budget summary and upcoming payments" loading="eager"></div>
+<div class="preview-shell app-screen-shell hero-dashboard-preview">
+  <img src="assets/screenshots/dashboard-safe-to-spend-v2.jpeg" alt="REVINANCE Daily dashboard with Safe to Spend, upcoming payments and budget overview" loading="eager">
+  <div class="hero-app-bottom-nav" aria-label="REVINANCE app navigation">
+    <span class="app-nav-symbol" aria-hidden="true">▦</span>
+    <span class="app-nav-symbol" aria-hidden="true">▤</span>
+    <span class="app-nav-brand" aria-label="REVINANCE"><img src="assets/favicon-revinance.png" alt=""></span>
+    <span class="app-nav-symbol" aria-hidden="true">▣</span>
+    <span class="app-nav-symbol" aria-hidden="true">◷</span>
+  </div>
+</div>
 <div class="preview-note"><div class="note-title" data-i18n="noteTitle">YOUR MONEY INSIGHT</div><div class="note-main" data-i18n="noteMain">Spending is in focus.</div><div class="note-tag" data-i18n="noteTag">A clearer view, one step at a time.</div></div>
 </div>
 </div></section>
