@@ -1182,6 +1182,61 @@ body{background:#121212!important}
   .currency-support-new .currency-list .currency-item{opacity:1!important;transform:none!important;transition:none!important}
 }
 
+
+/* Currency cards: true dark glass + actual flag image assets */
+.currency-support-new{
+  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012))!important;
+  border:1px solid rgba(228,221,204,.16)!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.055)!important;
+  -webkit-backdrop-filter:blur(24px) saturate(135%)!important;
+  backdrop-filter:blur(24px) saturate(135%)!important;
+}
+.currency-support-new .currency-item{
+  display:flex!important;
+  align-items:center!important;
+  gap:13px!important;
+  min-height:66px!important;
+  padding:13px 15px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025))!important;
+  border:1px solid rgba(228,221,204,.13)!important;
+  border-radius:15px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 8px 22px rgba(0,0,0,.12)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(140%)!important;
+  backdrop-filter:blur(18px) saturate(140%)!important;
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1),background .35s,border-color .35s,box-shadow .35s!important;
+  transition-delay:calc(var(--i,0)*35ms)!important;
+}
+.currency-support-new .currency-item.visible{opacity:1;transform:translateY(0)}
+.currency-support-new .currency-item.visible:hover{
+  transform:translateY(-5px)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.045))!important;
+  border-color:rgba(197,180,157,.38)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 15px 32px rgba(0,0,0,.25)!important;
+}
+.currency-support-new .currency-item .flag{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  flex:0 0 30px!important;
+  width:30px!important;
+  min-width:30px!important;
+  height:20px!important;
+  object-fit:cover!important;
+  border-radius:3px!important;
+  box-shadow:0 2px 7px rgba(0,0,0,.35)!important;
+  filter:saturate(1.08)!important;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1)!important;
+}
+.currency-support-new .currency-item:hover .flag{transform:scale(1.08)!important}
+.currency-support-new .currency-item strong{flex:0 0 42px!important;color:#f3eee5!important;font-size:12px!important;letter-spacing:.045em!important}
+.currency-support-new .currency-item small{color:rgba(228,221,204,.72)!important;font-size:11px!important}
+@media(max-width:760px){.currency-support-new .currency-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(prefers-reduced-motion:reduce){
+ .currency-support-new .currency-item{opacity:1!important;transform:none!important;transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -1223,7 +1278,7 @@ body{background:#121212!important}
 <div class="manifesto reveal"><div><div class="eyebrow" data-i18n="approachEyebrow">A BETTER RELATIONSHIP WITH MONEY</div><div class="big-copy" data-i18n-html="approachBig">You don't need more noise.<br><span>You need clarity.</span></div></div><div><p class="body-copy" data-i18n="approachBody">Keuangan pribadi sering terasa rumit bukan karena kamu tidak berusaha, tapi karena datanya tersebar dan sulit dibaca sebagai satu cerita. REVINANCE menyatukan aktivitas finansialmu agar kamu bisa memahami apa yang terjadi—dan menentukan langkah berikutnya.</p></div></div>
 <div class="flow-grid stagger" style="margin-top:60px"><article class="flow-card reveal" style="--i:0"><div class="flow-num">01 / TRACK</div><h3 data-i18n="flow1Title">Catat dengan mudah</h3><p data-i18n="flow1Body">Manual, scan struk, voice, atau split bill. Pilih cara yang paling natural.</p></article><article class="flow-card reveal" style="--i:1"><div class="flow-num">02 / UNDERSTAND</div><h3 data-i18n="flow2Title">Pahami polanya</h3><p data-i18n="flow2Body">Lihat pengeluaran, arus kas, kebiasaan, dan gambaran kesehatan finansial.</p></article><article class="flow-card reveal" style="--i:2"><div class="flow-num">03 / PLAN</div><h3 data-i18n="flow3Title">Rencanakan langkah</h3><p data-i18n="flow3Body">Buat budget, target tabungan, dan rencana investasi yang lebih terarah.</p></article><article class="flow-card reveal" style="--i:3"><div class="flow-num">04 / ACT</div><h3 data-i18n="flow4Title">Ambil tindakan</h3><p data-i18n="flow4Body">Gunakan insight yang relevan untuk keputusan finansial berikutnya.</p></article></div>
 </div></section>
-<section class="wrap currency-support-new"><div class="eyebrow" data-i18n="currencyEyebrow">SUPPORTED CURRENCIES</div><h3 data-i18n-html="currencyTitle">One ledger.<br><span class="gold">Multiple currencies.</span></h3><p data-i18n="currencyBody">Track supported currencies for everyday spending and travel, with each currency clearly identified.</p><div class="currency-list"><div class="currency-item reveal" style="--i:0"><span class="flag">🇮🇩</span><strong>IDR</strong><small>Indonesian Rupiah</small></div><div class="currency-item reveal" style="--i:1"><span class="flag">🇺🇸</span><strong>USD</strong><small>US Dollar</small></div><div class="currency-item reveal" style="--i:2"><span class="flag">🇪🇺</span><strong>EUR</strong><small>Euro</small></div><div class="currency-item reveal" style="--i:3"><span class="flag">🇬🇧</span><strong>GBP</strong><small>British Pound</small></div><div class="currency-item reveal" style="--i:4"><span class="flag">🇯🇵</span><strong>JPY</strong><small>Japanese Yen</small></div><div class="currency-item reveal" style="--i:5"><span class="flag">🇸🇬</span><strong>SGD</strong><small>Singapore Dollar</small></div><div class="currency-item reveal" style="--i:6"><span class="flag">🇲🇾</span><strong>MYR</strong><small>Malaysian Ringgit</small></div><div class="currency-item reveal" style="--i:7"><span class="flag">🇹🇭</span><strong>THB</strong><small>Thai Baht</small></div><div class="currency-item reveal" style="--i:8"><span class="flag">🇰🇷</span><strong>KRW</strong><small>South Korean Won</small></div><div class="currency-item reveal" style="--i:9"><span class="flag">🇨🇳</span><strong>CNY</strong><small>Chinese Yuan</small></div><div class="currency-item reveal" style="--i:10"><span class="flag">🇨🇦</span><strong>CAD</strong><small>Canadian Dollar</small></div><div class="currency-item reveal" style="--i:11"><span class="flag">🇨🇭</span><strong>CHF</strong><small>Swiss Franc</small></div><div class="currency-item reveal" style="--i:12"><span class="flag">🇹🇷</span><strong>TRY</strong><small>Turkish Lira</small></div><div class="currency-item reveal" style="--i:13"><span class="flag">🇸🇦</span><strong>SAR</strong><small>Saudi Riyal</small></div><div class="currency-item reveal" style="--i:14"><span class="flag">🇳🇿</span><strong>NZD</strong><small>New Zealand Dollar</small></div><div class="currency-item reveal" style="--i:15"><span class="flag">🇦🇺</span><strong>AUD</strong><small>Australian Dollar</small></div><div class="currency-item reveal" style="--i:16"><span class="flag">🇻🇳</span><strong>VND</strong><small>Vietnamese Dong</small></div><div class="currency-item reveal" style="--i:17"><span class="flag">🇮🇳</span><strong>INR</strong><small>Indian Rupee</small></div><div class="currency-item reveal" style="--i:18"><span class="flag">🇵🇭</span><strong>PHP</strong><small>Philippine Peso</small></div><div class="currency-item reveal" style="--i:19"><span class="flag">🇭🇰</span><strong>HKD</strong><small>Hong Kong Dollar</small></div></div></section>
+<section class="wrap currency-support-new"><div class="eyebrow" data-i18n="currencyEyebrow">SUPPORTED CURRENCIES</div><h3 data-i18n-html="currencyTitle">One ledger.<br><span class="gold">Multiple currencies.</span></h3><p data-i18n="currencyBody">Track supported currencies for everyday spending and travel, with each currency clearly identified.</p><div class="currency-list"><div class="currency-item reveal" style="--i:0"><img class="flag" src="https://flagcdn.com/w40/id.png" srcset="https://flagcdn.com/w80/id.png 2x" alt="Indonesia flag" width="30" height="20" loading="lazy" decoding="async"><strong>IDR</strong><small>Indonesian Rupiah</small></div><div class="currency-item reveal" style="--i:1"><img class="flag" src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" alt="United States flag" width="30" height="20" loading="lazy" decoding="async"><strong>USD</strong><small>US Dollar</small></div><div class="currency-item reveal" style="--i:2"><img class="flag" src="https://flagcdn.com/w40/eu.png" srcset="https://flagcdn.com/w80/eu.png 2x" alt="European Union flag" width="30" height="20" loading="lazy" decoding="async"><strong>EUR</strong><small>Euro</small></div><div class="currency-item reveal" style="--i:3"><img class="flag" src="https://flagcdn.com/w40/gb.png" srcset="https://flagcdn.com/w80/gb.png 2x" alt="United Kingdom flag" width="30" height="20" loading="lazy" decoding="async"><strong>GBP</strong><small>British Pound</small></div><div class="currency-item reveal" style="--i:4"><img class="flag" src="https://flagcdn.com/w40/jp.png" srcset="https://flagcdn.com/w80/jp.png 2x" alt="Japan flag" width="30" height="20" loading="lazy" decoding="async"><strong>JPY</strong><small>Japanese Yen</small></div><div class="currency-item reveal" style="--i:5"><img class="flag" src="https://flagcdn.com/w40/sg.png" srcset="https://flagcdn.com/w80/sg.png 2x" alt="Singapore flag" width="30" height="20" loading="lazy" decoding="async"><strong>SGD</strong><small>Singapore Dollar</small></div><div class="currency-item reveal" style="--i:6"><img class="flag" src="https://flagcdn.com/w40/my.png" srcset="https://flagcdn.com/w80/my.png 2x" alt="Malaysia flag" width="30" height="20" loading="lazy" decoding="async"><strong>MYR</strong><small>Malaysian Ringgit</small></div><div class="currency-item reveal" style="--i:7"><img class="flag" src="https://flagcdn.com/w40/th.png" srcset="https://flagcdn.com/w80/th.png 2x" alt="Thailand flag" width="30" height="20" loading="lazy" decoding="async"><strong>THB</strong><small>Thai Baht</small></div><div class="currency-item reveal" style="--i:8"><img class="flag" src="https://flagcdn.com/w40/kr.png" srcset="https://flagcdn.com/w80/kr.png 2x" alt="South Korea flag" width="30" height="20" loading="lazy" decoding="async"><strong>KRW</strong><small>South Korean Won</small></div><div class="currency-item reveal" style="--i:9"><img class="flag" src="https://flagcdn.com/w40/cn.png" srcset="https://flagcdn.com/w80/cn.png 2x" alt="China flag" width="30" height="20" loading="lazy" decoding="async"><strong>CNY</strong><small>Chinese Yuan</small></div><div class="currency-item reveal" style="--i:10"><img class="flag" src="https://flagcdn.com/w40/ca.png" srcset="https://flagcdn.com/w80/ca.png 2x" alt="Canada flag" width="30" height="20" loading="lazy" decoding="async"><strong>CAD</strong><small>Canadian Dollar</small></div><div class="currency-item reveal" style="--i:11"><img class="flag" src="https://flagcdn.com/w40/ch.png" srcset="https://flagcdn.com/w80/ch.png 2x" alt="Switzerland flag" width="30" height="20" loading="lazy" decoding="async"><strong>CHF</strong><small>Swiss Franc</small></div><div class="currency-item reveal" style="--i:12"><img class="flag" src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" alt="Turkey flag" width="30" height="20" loading="lazy" decoding="async"><strong>TRY</strong><small>Turkish Lira</small></div><div class="currency-item reveal" style="--i:13"><img class="flag" src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" alt="Saudi Arabia flag" width="30" height="20" loading="lazy" decoding="async"><strong>SAR</strong><small>Saudi Riyal</small></div><div class="currency-item reveal" style="--i:14"><img class="flag" src="https://flagcdn.com/w40/nz.png" srcset="https://flagcdn.com/w80/nz.png 2x" alt="New Zealand flag" width="30" height="20" loading="lazy" decoding="async"><strong>NZD</strong><small>New Zealand Dollar</small></div><div class="currency-item reveal" style="--i:15"><img class="flag" src="https://flagcdn.com/w40/au.png" srcset="https://flagcdn.com/w80/au.png 2x" alt="Australia flag" width="30" height="20" loading="lazy" decoding="async"><strong>AUD</strong><small>Australian Dollar</small></div><div class="currency-item reveal" style="--i:16"><img class="flag" src="https://flagcdn.com/w40/vn.png" srcset="https://flagcdn.com/w80/vn.png 2x" alt="Vietnam flag" width="30" height="20" loading="lazy" decoding="async"><strong>VND</strong><small>Vietnamese Dong</small></div><div class="currency-item reveal" style="--i:17"><img class="flag" src="https://flagcdn.com/w40/in.png" srcset="https://flagcdn.com/w80/in.png 2x" alt="India flag" width="30" height="20" loading="lazy" decoding="async"><strong>INR</strong><small>Indian Rupee</small></div><div class="currency-item reveal" style="--i:18"><img class="flag" src="https://flagcdn.com/w40/ph.png" srcset="https://flagcdn.com/w80/ph.png 2x" alt="Philippines flag" width="30" height="20" loading="lazy" decoding="async"><strong>PHP</strong><small>Philippine Peso</small></div><div class="currency-item reveal" style="--i:19"><img class="flag" src="https://flagcdn.com/w40/hk.png" srcset="https://flagcdn.com/w80/hk.png 2x" alt="Hong Kong flag" width="30" height="20" loading="lazy" decoding="async"><strong>HKD</strong><small>Hong Kong Dollar</small></div></div></section>
 <section class="product-proof" id="inside-revinance"><div class="wrap">
   <div class="product-proof-head reveal"><div><div class="eyebrow" data-i18n="proofEyebrow">INSIDE THE APP</div><h2 class="serif proof-title" data-i18n-html="proofTitle">Built for your real financial life.<br><span class="gold">See REVINANCE in action.</span></h2></div><p data-i18n="proofIntro">Explore real screens from the app—from daily money clarity to deeper analysis, travel spending, and debt management.</p></div>
   <div class="product-proof-grid stagger">
