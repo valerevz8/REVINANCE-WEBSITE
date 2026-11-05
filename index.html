@@ -1109,6 +1109,79 @@ body{background:#121212!important}
  .currency-support-new .currency-item.reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
 
+
+
+/* REVINANCE visual polish: dimensional dashboard + unmistakable currency flags */
+.hero-dashboard-preview{
+  perspective:1500px!important;
+  transform:perspective(1500px) rotateY(-6deg) rotateX(1.8deg)!important;
+  transform-origin:50% 50%!important;
+  translate:0 0;
+  animation:dashboardHover 7.5s ease-in-out infinite!important;
+  will-change:translate,transform;
+  box-shadow:22px 34px 85px rgba(0,0,0,.5),inset 0 1px 0 rgba(248,244,238,.12)!important;
+  transition:transform .8s cubic-bezier(.2,.8,.2,1),box-shadow .8s!important;
+}
+.hero-dashboard-preview:hover{
+  transform:perspective(1500px) rotateY(-3.5deg) rotateX(1deg) scale(1.008)!important;
+  box-shadow:28px 42px 100px rgba(0,0,0,.58),inset 0 1px 0 rgba(248,244,238,.16)!important;
+}
+.hero-dashboard-preview>img{
+  border:1px solid rgba(248,244,238,.09);
+  box-shadow:inset 0 0 28px rgba(0,0,0,.16),0 12px 32px rgba(0,0,0,.22)!important;
+}
+@keyframes dashboardHover{
+  0%,100%{translate:0 0}
+  50%{translate:0 -10px}
+}
+.currency-support-new .currency-list .currency-item{
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  min-height:66px!important;
+  padding:13px 15px!important;
+  opacity:0!important;
+  transform:translateY(18px) scale(.985)!important;
+  animation:none!important;
+  transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1),border-color .35s,background .35s,box-shadow .35s!important;
+  transition-delay:calc(var(--i,0)*35ms)!important;
+}
+.currency-support-new .currency-list .currency-item.visible{
+  opacity:1!important;
+  transform:translateY(0) scale(1)!important;
+}
+.currency-support-new .currency-list .currency-item.visible:hover{
+  transform:translateY(-5px) scale(1.012)!important;
+}
+.currency-support-new .currency-item .flag{
+  display:inline-flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex:0 0 30px!important;
+  width:30px!important;
+  min-width:30px!important;
+  height:26px!important;
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif!important;
+  font-size:23px!important;
+  line-height:1!important;
+  filter:saturate(1.08) drop-shadow(0 2px 3px rgba(0,0,0,.22));
+  transition:transform .35s cubic-bezier(.2,.8,.2,1)!important;
+}
+.currency-support-new .currency-item:hover .flag{transform:translateY(-1px) scale(1.16) rotate(-4deg)!important}
+@media(max-width:760px){
+  .hero-dashboard-preview{
+    transform:perspective(1200px) rotateY(-3.5deg) rotateX(1deg)!important;
+    animation:dashboardHover 8s ease-in-out infinite!important;
+  }
+  .hero-dashboard-preview:hover{transform:perspective(1200px) rotateY(-2deg) rotateX(.5deg)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-dashboard-preview{animation:none!important;translate:0 0!important;transform:none!important}
+  .currency-support-new .currency-list .currency-item{opacity:1!important;transform:none!important;transition:none!important}
+}
+
 </style>
 </head>
 <body>
