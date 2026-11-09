@@ -19,6 +19,7 @@ Open `index.html` in a modern browser. Google Fonts and the REVINANCE app icon l
 
 - Dashboard figures are illustrative, not connected to a live account.
 - Confirm pricing, feature entitlements, and legal/privacy copy.
-- Connect CTAs to the real signup/app flow and payment provider.
-- Verify responsive behavior and browser accessibility in a real browser.
+- Marketing CTAs route to the existing app authentication and Pro plan URLs; monthly/yearly selection passes the matching `period` query parameter.
+- Terms of Service and Privacy Policy link to the live app legal pages; support contact: `support@revinance.app`.
+- Verify all app routes, responsive behavior, browser accessibility, and the deployed experience before production release.
 - Keep production changes out of `dev` until reviewed and approved.
