@@ -1237,13 +1237,249 @@ body{background:#121212!important}
  .currency-support-new .currency-item{opacity:1!important;transform:none!important;transition:none!important}
 }
 
+
+
+/* Mobile polish: currency cards stay inside their columns; flags remain visible */
+.currency-support-new,
+.currency-list,
+.currency-item{min-width:0;max-width:100%}
+.currency-item{
+  display:grid!important;
+  grid-template-columns:34px 42px minmax(0,1fr)!important;
+  align-items:center;
+  gap:8px!important;
+  overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.035))!important;
+  border:1px solid rgba(248,244,238,.16)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 8px 20px rgba(0,0,0,.12);
+  backdrop-filter:blur(16px) saturate(125%);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+}
+.currency-item .flag{
+  display:block!important;
+  grid-row:auto!important;
+  width:30px;
+  height:20px;
+  max-width:100%;
+  object-fit:cover;
+  border-radius:4px;
+  box-shadow:0 2px 7px rgba(0,0,0,.24);
+  flex:none;
+}
+.currency-item strong{
+  min-width:0;
+  width:auto;
+  flex:none!important;
+  font-size:12px;
+  white-space:nowrap;
+}
+.currency-item small{
+  display:block;
+  min-width:0;
+  max-width:100%;
+  font-size:11px;
+  line-height:1.3;
+  white-space:normal!important;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  hyphens:auto;
+}
+@media(max-width:760px){
+  .currency-support-new{padding:21px 15px;margin:38px 0;overflow:hidden}
+  .currency-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px}
+  .currency-item{grid-template-columns:27px 38px minmax(0,1fr)!important;gap:6px!important;padding:11px 9px!important;min-height:64px}
+  .currency-item .flag{width:25px;height:17px}
+  .currency-item strong{font-size:11px}
+  .currency-item small{font-size:10px;line-height:1.25;letter-spacing:-.01em}
+  .comparison-wrap{
+    scrollbar-width:thin;
+    scrollbar-color:#252525 rgba(37,37,37,.12);
+    padding-bottom:2px;
+  }
+  .comparison-wrap::-webkit-scrollbar{height:7px}
+  .comparison-wrap::-webkit-scrollbar-track{background:rgba(37,37,37,.12);border-radius:99px}
+  .comparison-wrap::-webkit-scrollbar-thumb{background:#252525;border-radius:99px}
+  .comparison-wrap:after{
+    content:"";
+    display:block;
+    width:58px;
+    height:5px;
+    margin:9px auto 10px;
+    border-radius:99px;
+    background:#252525;
+    box-shadow:0 1px 2px rgba(0,0,0,.18);
+  }
+}
+
+
+
+/* Mobile currency cards: put the description beneath the flag and code */
+@media(max-width:600px){
+  .currency-support-new .currency-list{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    align-items:stretch;
+  }
+  .currency-support-new .currency-item{
+    display:grid!important;
+    grid-template-columns:28px minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    align-content:center;
+    align-items:center!important;
+    justify-content:initial!important;
+    column-gap:9px!important;
+    row-gap:7px!important;
+    min-width:0!important;
+    min-height:76px!important;
+    padding:12px 10px!important;
+    overflow:hidden;
+  }
+  .currency-support-new .currency-item .flag{
+    grid-column:1!important;
+    grid-row:1!important;
+    width:27px;
+    height:auto;
+    max-width:27px;
+    justify-self:start;
+    font-size:17px;
+  }
+  .currency-support-new .currency-item strong{
+    grid-column:2!important;
+    grid-row:1!important;
+    min-width:0!important;
+    width:auto!important;
+    font-size:11px!important;
+    white-space:nowrap;
+  }
+  .currency-support-new .currency-item small{
+    grid-column:1/-1!important;
+    grid-row:2!important;
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    padding:0!important;
+    margin:0!important;
+    font-size:10px!important;
+    line-height:1.35!important;
+    white-space:normal!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+    text-align:left!important;
+  }
+  /* The scrollbar itself remains; remove the extra decorative pill below it. */
+  .comparison-wrap:after{content:none!important;display:none!important}
+}
+
+
+/* Mobile currency labels: move descriptions below flag/code to prevent clipping */
+@media(max-width:760px){
+  .currency-support-new .currency-list .currency-item{
+    display:grid!important;
+    grid-template-columns:30px minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    align-content:center!important;
+    align-items:center!important;
+    justify-items:start!important;
+    column-gap:9px!important;
+    row-gap:7px!important;
+    min-height:82px!important;
+    padding:12px 12px!important;
+    overflow:hidden!important;
+  }
+  .currency-support-new .currency-list .currency-item .flag{
+    grid-column:1!important;
+    grid-row:1!important;
+    width:27px!important;
+    height:19px!important;
+    align-self:center!important;
+  }
+  .currency-support-new .currency-list .currency-item strong{
+    grid-column:2!important;
+    grid-row:1!important;
+    min-width:0!important;
+    width:auto!important;
+    font-size:11px!important;
+    line-height:1.2!important;
+  }
+  .currency-support-new .currency-list .currency-item small{
+    grid-column:1/-1!important;
+    grid-row:2!important;
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    font-size:10px!important;
+    line-height:1.35!important;
+    letter-spacing:0!important;
+    white-space:normal!important;
+    overflow-wrap:break-word!important;
+    word-break:normal!important;
+    hyphens:auto!important;
+    text-align:left!important;
+  }
+}
+
+
+/* Premium dark-glass treatment for the four-step journey cards */
+.flow-grid .flow-card{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate;
+  background:linear-gradient(145deg,rgba(39,39,39,.96) 0%,rgba(20,20,20,.985) 100%)!important;
+  border:1px solid rgba(228,221,204,.19)!important;
+  border-radius:22px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.075),inset 0 -1px 0 rgba(0,0,0,.32),0 16px 38px rgba(0,0,0,.17)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(135%)!important;
+  backdrop-filter:blur(22px) saturate(135%)!important;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s,background .4s!important;
+}
+.flow-grid .flow-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 12% 0%,rgba(197,180,157,.105),transparent 58%);
+  opacity:.8;
+}
+.flow-grid .flow-card:hover{
+  transform:translateY(-5px)!important;
+  background:linear-gradient(145deg,rgba(48,46,43,.98),rgba(21,21,21,.99))!important;
+  border-color:rgba(197,180,157,.42)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 22px 48px rgba(0,0,0,.25)!important;
+}
+.flow-grid .flow-num{
+  color:#c5b49d!important;
+  letter-spacing:.14em!important;
+}
+.flow-grid .flow-card h3{
+  color:#f5f1e9!important;
+}
+.flow-grid .flow-card p{
+  color:rgba(228,221,204,.73)!important;
+}
+@media(max-width:760px){
+  .flow-grid .flow-card{
+    padding:22px 20px!important;
+    border-radius:20px!important;
+    min-height:205px!important;
+  }
+  .flow-grid .flow-card h3{font-size:20px!important;line-height:1.3!important}
+  .flow-grid .flow-card p{font-size:13px!important;line-height:1.75!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .flow-grid .flow-card{transition:none!important}
+}
+
 </style>
 </head>
 <body>
 <header class="nav" id="nav"><div class="wrap nav-inner">
 <a class="brand" href="#" aria-label="REVINANCE home"><img class="brand-logo" src="assets/LOGO%20REVINANCE%20HORIZONTAL.png" alt="REVINANCE"></a>
 <nav class="nav-links" aria-label="Main navigation"><a href="#approach" data-i18n="navApproach">Pendekatan</a><a href="#inside-revinance" data-i18n="navFeatures">Di Aplikasi</a><a href="#comparison" data-i18n="navCompare">Perbandingan</a><a href="#pricing" data-i18n="navPricing">Harga</a><a href="#faq" data-i18n="navFaq">FAQ</a></nav>
-<div class="nav-actions"><div class="lang-switch" id="langToggle" role="group" aria-label="Language"><button type="button" data-language="id" aria-pressed="true">ID</button><button type="button" data-language="en" aria-pressed="false">EN</button></div><a class="nav-auth" href="https://app.revinance.app" data-i18n="navAuth">Daftar / Masuk</a></div>
+<div class="nav-actions"><div class="lang-switch" id="langToggle" role="group" aria-label="Language"><button type="button" data-language="id" aria-pressed="true">ID</button><button type="button" data-language="en" aria-pressed="false">EN</button></div><a class="nav-auth" href="https://app.revinance.app/auth" data-i18n="navAuth">Daftar / Masuk</a></div>
 </div></header>
 <main>
 <section class="hero"><div class="wrap hero-grid">
@@ -1251,12 +1487,12 @@ body{background:#121212!important}
 <div class="eyebrow" data-i18n="heroEyebrow">PERSONAL FINANCE INTELLIGENCE</div>
 <h1 class="serif hero-title" data-i18n-html="heroTitle"><span class="hero-line">Lacak lebih sedikit.</span><br><span class="hero-line">Pahami lebih banyak.</span></h1>
 <p data-i18n="heroBody">Bukan sekadar mencatat pengeluaran. Pahami pola uangmu, lihat apa yang perlu diperhatikan, dan ambil keputusan finansial dengan lebih jelas.</p>
-<div class="hero-actions"><a class="btn" href="#pricing"><span data-i18n="heroPrimary">Kenali REVINANCE</span><span class="arrow">↗</span></a><a class="btn secondary" href="#approach" data-i18n="heroSecondary">Lihat cara kerjanya</a></div>
+<div class="hero-actions"><a class="btn" href="#pricing"><span data-i18n="heroPrimary">Kenali REVINANCE</span></a><a class="btn secondary" href="#approach" data-i18n="heroSecondary">Lihat cara kerjanya</a></div>
 <div class="micro-proof"><span class="proof-dot"></span><span data-i18n="heroFoot">Satu tempat untuk melihat gambaran uangmu lebih utuh.</span></div>
 </div>
 <div class="preview-wrap">
 <div class="preview-shell app-screen-shell hero-dashboard-preview">
-  <img src="assets/screenshots/dashboard-safe-to-spend-v2.jpeg" alt="REVINANCE Daily dashboard with Safe to Spend, upcoming payments and budget overview" loading="eager">
+  <img src="assets/screenshots/Dashboard%20home.jpeg" alt="REVINANCE Daily dashboard with Safe to Spend, upcoming payments and budget overview" loading="eager">
 
 </div>
 <div class="preview-note"><div class="note-title" data-i18n="noteTitle">YOUR MONEY INSIGHT</div><div class="note-main" data-i18n="noteMain">Spending is in focus.</div><div class="note-tag" data-i18n="noteTag">A clearer view, one step at a time.</div></div>
@@ -1282,7 +1518,7 @@ body{background:#121212!important}
 <section class="product-proof" id="inside-revinance"><div class="wrap">
   <div class="product-proof-head reveal"><div><div class="eyebrow" data-i18n="proofEyebrow">INSIDE THE APP</div><h2 class="serif proof-title" data-i18n-html="proofTitle">Built for your real financial life.<br><span class="gold">See REVINANCE in action.</span></h2></div><p data-i18n="proofIntro">Explore real screens from the app—from daily money clarity to deeper analysis, travel spending, and debt management.</p></div>
   <div class="product-proof-grid stagger">
-    <figure class="product-shot reveal" style="--i:0"><img src="assets/screenshots/dashboard-safe-to-spend-v2.jpeg" alt="REVINANCE latest daily dashboard showing Safe-to-Spend, budget alerts, transactions and upcoming obligations" loading="lazy"><figcaption><span class="shot-index" data-i18n="proofIndex1">01 / DAILY CLARITY</span><h3 data-i18n="proof1Title">Know what is safe to spend</h3><p data-i18n="proof1Body">See available spending room, budget alerts, daily activity, and upcoming bills in one place.</p></figcaption></figure>
+    <figure class="product-shot reveal" style="--i:0"><img src="assets/screenshots/Dashboard%20home.jpeg" alt="REVINANCE latest daily dashboard showing Safe-to-Spend, budget alerts, transactions and upcoming obligations" loading="lazy"><figcaption><span class="shot-index" data-i18n="proofIndex1">01 / DAILY CLARITY</span><h3 data-i18n="proof1Title">Know what is safe to spend</h3><p data-i18n="proof1Body">See available spending room, budget alerts, daily activity, and upcoming bills in one place.</p></figcaption></figure>
     <figure class="product-shot reveal" style="--i:1"><img src="assets/screenshots/analytics-financial-health.jpeg" alt="REVINANCE financial analytics with monthly income and expense trends" loading="lazy"><figcaption><span class="shot-index" data-i18n="proofIndex2">02 / ANALYTICS</span><h3 data-i18n="proof2Title">Understand your money patterns</h3><p data-i18n="proof2Body">Review monthly trends, compare income and expenses, and identify changes over time.</p></figcaption></figure>
     <figure class="product-shot reveal" style="--i:2"><img src="assets/screenshots/financial-health-score.jpeg" alt="REVINANCE financial health score and financial summary cards" loading="lazy"><figcaption><span class="shot-index" data-i18n="proofIndex3">03 / FINANCIAL HEALTH</span><h3 data-i18n="proof3Title">See the bigger financial picture</h3><p data-i18n="proof3Body">Bring your financial health score together with income, expenses, debt paid, investments, and available cash.</p></figcaption></figure>
     
@@ -1311,8 +1547,8 @@ body{background:#121212!important}
 <div class="pricing-intro reveal"><div class="eyebrow" data-i18n="pricingEyebrow">SIMPLE, TRANSPARENT PRICING</div><h2 data-i18n-html="pricingTitle">Start with clarity.<br><span style="color:#8c7a60">Grow when you're ready.</span></h2><p data-i18n="pricingIntro">Mulai dengan fondasi finansial yang kuat. Upgrade saat kamu membutuhkan insight dan tools yang lebih dalam.</p>
 <div class="billing"><button class="active" data-billing="monthly" data-i18n="monthly">Bulanan</button><button data-billing="yearly" data-i18n="yearly">Tahunan <span class="save" data-i18n="saveLabel">HEMAT</span></button></div></div>
 <div class="pricing-grid">
-<article class="price-card reveal"><div class="plan-name">FREE</div><div class="plan-desc" data-i18n="freeDesc">Semua kebutuhan dasar untuk mulai memahami uangmu.</div><div class="price" data-price-free>Rp0</div><div class="price-period" data-i18n="forever">selamanya</div><div class="price-note">&nbsp;</div><a class="btn secondary" href="#closing" data-i18n="freeCta">Mulai dengan Free</a><ul class="feature-list"><li data-i18n="free1">Transaksi, akun, dan saldo</li><li data-i18n="free2">Budget, recurring, utang & piutang</li><li data-i18n="free3">Saving Goals & Investment Plan</li><li data-i18n="free4">Basic Analytics & Financial Health</li><li data-i18n="free5">Shared AI credit allowance</li><li data-i18n="free6">IDR & USD</li></ul></article>
-<article class="price-card featured reveal"><div class="plan-name">PRO <span class="gold">✦</span></div><div class="plan-desc" data-i18n="proDesc">Untuk gambaran yang lebih dalam dan keputusan yang lebih terarah.</div><div class="price" data-price-pro>Rp39.000</div><div class="price-period" data-price-period>/ bulan</div><div class="price-note" data-price-note>atau Rp399.000 / tahun</div><span class="btn pro-coming-soon" aria-disabled="true"><span data-i18n="proCta">Jelajahi Pro</span></span><ul class="feature-list"><li data-i18n="pro1">Semua fitur Free</li><li data-i18n="pro2">Investment Portfolio</li><li data-i18n="pro3">Advanced Analytics & Revi</li><li data-i18n="pro4">Higher shared AI credit allowance</li><li data-i18n="pro5">Travel Mode & full multi-currency</li><li data-i18n="pro6">PDF reports & account history graph</li></ul></article>
+<article class="price-card reveal"><div class="plan-name">FREE</div><div class="plan-desc" data-i18n="freeDesc">Semua kebutuhan dasar untuk mulai memahami uangmu.</div><div class="price" data-price-free>Rp0</div><div class="price-period" data-i18n="forever">selamanya</div><div class="price-note">&nbsp;</div><a class="btn secondary" href="https://app.revinance.app/auth?plan=free" data-i18n="freeCta">Mulai dengan Free</a><ul class="feature-list"><li data-i18n="free1">Transaksi, akun, dan saldo</li><li data-i18n="free2">Budget, recurring, utang & piutang</li><li data-i18n="free3">Saving Goals & Investment Plan</li><li data-i18n="free4">Basic Analytics & Financial Health</li><li data-i18n="free5">Shared AI credit allowance</li><li data-i18n="free6">IDR & USD</li></ul></article>
+<article class="price-card featured reveal"><div class="plan-name">PRO <span class="gold">✦</span></div><div class="plan-desc" data-i18n="proDesc">Untuk gambaran yang lebih dalam dan keputusan yang lebih terarah.</div><div class="price" data-price-pro>Rp39.000</div><div class="price-period" data-price-period>/ bulan</div><div class="price-note" data-price-note>atau Rp399.000 / tahun</div><a class="btn" data-pro-cta href="https://app.revinance.app/?plan=pro&amp;period=monthly"><span data-i18n="proCta">Pilih Pro</span></a><ul class="feature-list"><li data-i18n="pro1">Semua fitur Free</li><li data-i18n="pro2">Investment Portfolio</li><li data-i18n="pro3">Advanced Analytics & Revi</li><li data-i18n="pro4">Higher shared AI credit allowance</li><li data-i18n="pro5">Travel Mode & full multi-currency</li><li data-i18n="pro6">PDF reports & account history graph</li></ul></article>
 </div><p class="muted" style="text-align:center;font-size:10px;margin-top:24px" data-i18n="pricingFoot">Harga internasional: $7.99/bulan atau $79.99/tahun. Harga dan fitur final perlu dikonfirmasi sebelum peluncuran.</p>
 </div></section>
 <section class="section" id="faq"><div class="wrap faq-grid"><div class="reveal"><div class="eyebrow" data-i18n="faqEyebrow">GOOD QUESTIONS</div><h2 data-i18n-html="faqTitle">Clarity starts<br>with the basics.</h2><p class="muted" style="font-size:13px;line-height:1.8;max-width:310px" data-i18n="faqIntro">Hal yang perlu kamu ketahui sebelum mulai menggunakan REVINANCE.</p></div><div class="faq-list reveal">
@@ -1322,9 +1558,9 @@ body{background:#121212!important}
 <details><summary data-i18n="q4">Apakah REVINANCE memberikan nasihat investasi?</summary><p data-i18n="a4">REVINANCE membantu mengorganisasi dan memahami data finansial. Insight yang ditampilkan bukan jaminan hasil dan tidak menggantikan penilaian pribadi atau nasihat profesional.</p></details>
 <details><summary data-i18n="q5">Apakah website ini sudah terhubung ke akun dan pembayaran?</summary><p data-i18n="a5">Tampilan website ini merupakan preview marketing. Nilai dashboard bersifat ilustratif, dan CTA maupun integrasi pembayaran perlu dihubungkan sebelum website dipublikasikan sebagai produk final.</p></details>
 </div></div></section>
-<section class="closing" id="closing"><div class="wrap reveal"><div class="eyebrow" data-i18n="closingEyebrow">YOUR NEXT CHAPTER</div><h2 data-i18n-html="closingTitle">Make money feel<br>less complicated.</h2><p data-i18n="closingBody">Mulai dari memahami kondisi sekarang. Lalu tentukan langkah berikutnya dengan lebih percaya diri.</p><a class="btn" href="#pricing"><span data-i18n="closingCta">Temukan plan-mu</span><span class="arrow">↗</span></a></div></section>
+<section class="closing" id="closing"><div class="wrap reveal"><div class="eyebrow" data-i18n="closingEyebrow">YOUR NEXT CHAPTER</div><h2 data-i18n-html="closingTitle">Make money feel<br>less complicated.</h2><p data-i18n="closingBody">Mulai dari memahami kondisi sekarang. Lalu tentukan langkah berikutnya dengan lebih percaya diri.</p><a class="btn" href="#pricing"><span data-i18n="closingCta">Temukan plan-mu</span></a></div></section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#" aria-label="REVINANCE home"><img class="brand-logo" src="assets/LOGO%20REVINANCE%20HORIZONTAL.png" alt="REVINANCE"></a><span data-i18n="footerCopy">© 2026 REVINANCE. Track less. Understand more.</span><div class="footer-links"><a href="#approach" data-i18n="navApproach">Pendekatan</a><a href="#inside-revinance" data-i18n="navFeatures">Di Aplikasi</a><a href="#pricing" data-i18n="navPricing">Harga</a></div></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#" aria-label="REVINANCE home"><img class="brand-logo" src="assets/LOGO%20REVINANCE%20HORIZONTAL.png" alt="REVINANCE"></a><span data-i18n="footerCopy">© 2026 REVINANCE. Track less. Understand more.</span><div class="footer-links"><a href="#approach" data-i18n="navApproach">Pendekatan</a><a href="#inside-revinance" data-i18n="navFeatures">Di Aplikasi</a><a href="#pricing" data-i18n="navPricing">Harga</a><a href="https://app.revinance.app/terms" target="_blank" rel="noopener" data-i18n="footerTerms">Ketentuan Layanan</a><a href="https://app.revinance.app/privacy" target="_blank" rel="noopener" data-i18n="footerPrivacy">Kebijakan Privasi</a><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=support%40revinance.app" target="_blank" rel="noopener">support@revinance.app</a></div></div></footer>
 <script>
 const copy={
 id:{
@@ -1338,9 +1574,9 @@ flow1Title:"Catat dengan mudah",flow1Body:"Manual, scan struk, voice, atau split
 featuresEyebrow:"DIRANCANG UNTUK KEHIDUPAN NYATA",featuresTitle:"Semua saling terhubung.<br><span class='gold'>Tanpa terasa rumit.</span>",featuresIntro:"Fitur yang saling terhubung untuk membantu kamu mencatat, memahami, merencanakan, dan membangun keputusan finansial yang lebih baik.",f1Title:"Gambaran Keuangan Lengkap",f1Body:"Transaksi, akun dan saldo, pemasukan, pengeluaran, budget, transaksi berulang, utang, cicilan, dan piutang saling terhubung dalam satu ledger.",f2Title:"Cara Praktis Mencatat Transaksi",f2Body:"Catat transaksi secara manual, gunakan Voice Add, atau bagi tagihan bersama lewat Split Bill. Pilih cara tercepat agar ledger selalu rapi.",f3Title:"Tanya Revi",f3Body:"Tanyakan pola pengeluaran, perubahan aktivitas, ringkasan keuangan, atau progres budget berdasarkan data yang tersedia.",f4Title:"Budget & Safe-to-Spend",f4Body:"Pantau pemakaian budget per kategori dan pahami ruang belanja yang tersedia agar keputusan harian lebih disengaja.",f5Title:"Saving Goals & Financial Review",f5Body:"Tetapkan target tabungan, pantau progres, lihat financial health score, dan tinjau pola dari waktu ke waktu.",f6Title:"Investment Plan & Portfolio",f6Body:"Rencanakan investasi dengan Investment Plan. Portfolio Pro mencatat aset yang benar-benar dimiliki beserta nilai dan profit/loss yang didukung aplikasi.",f7Title:"Advanced Analytics & Reports",f7Body:"Bandingkan antarperiode, pahami pendorong perubahan pengeluaran dan pola perilaku, lalu unduh laporan keuangan PDF dengan Pro.",f8Title:"Multi-currency & Travel Mode",f8Body:"Kelola mata uang yang didukung, lihat ringkasan dalam mata uang tampilan, dan pisahkan budget serta pengeluaran perjalanan.",f9Title:"Pengingat Utang & Piutang",f9Body:"Atur pengingat mulai H-7 hingga hari jatuh tempo agar cicilan, utang, dan uang yang perlu kamu tagih tidak terlewat.",f10Title:"AI Scan Banyak Struk Sekaligus",f10Body:"Scan hingga 10 struk dalam satu foto, atau unggah hingga 10 foto dalam satu kali scan. Tinjau hasilnya di Draft List dan simpan sekaligus.",tagMultiScan:"TRACK · MULTI-RECEIPT AI SCAN",scanPoint1:"dalam satu foto",scanPoint2:"dalam satu kali scan",scanPoint3:"tinjau dan simpan semuanya sekaligus",currencyEyebrow:"MATA UANG YANG DIDUKUNG",currencyTitle:"Satu ledger.<br><span class=gold>Banyak mata uang.</span>",currencyBody:"Catat transaksi dalam mata uang yang didukung untuk kebutuhan harian maupun perjalanan.",reminderLabel:"AKAN JATUH TEMPO",reminderWindow:"H−7 → HARI H",reminderOverdue:"TERLAMBAT · PIUTANG",reminderLate:"Terlambat 1 hari",reminderDue:"SEGERA · CICILAN",reminderTomorrow:"Jatuh tempo besok",reminderFoot:"Pengingat dapat diatur sebelum tanggal jatuh tempo",tagReminders:"TRACK · PENGINGAT JATUH TEMPO",tagCore:"TRACK · CATATAN FINANSIAL",tagCapture:"TRACK · LEBIH PRAKTIS",tagAssistant:"UNDERSTAND · AI KONTEKSTUAL",tagPlanning:"PLAN · KEPUTUSAN HARIAN",tagReview:"PLAN · TINJAUAN",tagBuild:"PLAN → BUILD",tagAdvanced:"BUILD · INSIGHT PRO",tagTravel:"BUILD · TRAVEL PRO",tagPro:"FITUR PRO",tagClarity:"KEJELASAN",
 insightEyebrow:"DARI CATATAN KE PEMAHAMAN",insightTitle:"Angka memberi tahu apa yang terjadi.<br><span class='gold'>Konteks membantumu memutuskan.</span>",insightBody:"REVINANCE menghubungkan aktivitas, rencana, dan kebiasaan finansialmu supaya kamu tidak hanya melihat angka—tapi memahami apa artinya untuk langkah berikutnya.",insight1Title:"Gambaran yang lebih utuh",insight1Body:"Lihat saldo, arus kas, budget, dan kewajiban sebagai satu cerita.",insight2Title:"Perubahan yang bisa dipahami",insight2Body:"Bandingkan aktivitas dan kenali pola berdasarkan data yang tersedia.",insight3Title:"Dari paham ke rencana",insight3Body:"Gunakan pemahaman untuk menentukan langkah berikutnya dengan lebih terarah.",
 intelligenceEyebrow:"DARI ANGKA KE KEPUTUSAN",intelligenceTitle:"Bukan hanya tahu ke mana uang pergi.<br><span class='gold'>Pahami apa yang perlu dilakukan.</span>",intelligenceIntro:"REVINANCE membantu menghubungkan pola, kewajiban, dan tujuan finansialmu—agar langkah berikutnya terasa lebih jelas.",intelligence1Title:"Pahami pola pengeluaran",intelligence1Body:"Lihat perubahan aktivitas dan kategori berdasarkan catatan yang tersedia.",intelligence2Title:"Lebih siap menghadapi tagihan",intelligence2Body:"Pantau kewajiban dan piutang agar kamu tahu apa yang perlu diperhatikan.",intelligence3Title:"Rencanakan langkah berikutnya",intelligence3Body:"Gunakan budget, Safe-to-Spend, dan target tabungan untuk membuat keputusan lebih terarah.",intelligenceNote:"Contoh ilustratif. Insight bergantung pada data yang tersedia di akunmu.",
-proofIndex1:"01 / KEJELASAN HARIAN",proofIndex2:"02 / ANALITIK",proofIndex3:"03 / KESEHATAN FINANSIAL",proofIndex4:"04 / MODE PERJALANAN",proofIndex5:"05 / TANYA REVI",proofIndex6:"06 / KELOLA UTANG",proofIndex7:"08 / AI SCAN BANYAK STRUK",proofIndex8:"07 / RENCANA ALOKASI",proof8Title:"Tentukan tujuan untuk setiap bagian pemasukan",proof8Body:"Atur alokasi Savings, Needs, dan Wants, sesuaikan persentasenya, lalu pantau progres aktual dibanding rencana.",proofEyebrow:"LIHAT LANGSUNG DI APLIKASI",proofTitle:"Dirancang untuk kondisi keuangan nyata.<br><span class=gold>Lihat REVINANCE bekerja.</span>",proofIntro:"Jelajahi tampilan asli aplikasi—mulai dari gambaran uang harian hingga analitik, pengeluaran perjalanan, dan pengelolaan utang.",proof1Title:"Ketahui uang yang aman dipakai",proof1Body:"Lihat dana yang tersedia, peringatan budget, aktivitas harian, dan tagihan mendatang di satu tempat.",proof2Title:"Pahami pola keuanganmu",proof2Body:"Tinjau tren bulanan, bandingkan pemasukan dan pengeluaran, dan kenali perubahan dari waktu ke waktu.",proof3Title:"Lihat gambaran finansial yang lebih utuh",proof3Body:"Satukan financial health score dengan pemasukan, pengeluaran, utang yang dibayar, investasi, dan kas tersedia.",proof4Title:"Jaga pengeluaran perjalanan tetap terarah",proof4Body:"Pisahkan budget perjalanan, scan struk dalam 20 mata uang, dan lihat konversi otomatis ke mata uang utama akunmu.",proof5Title:"Tanyakan kondisi keuanganmu kepada Revi",proof5Body:"Minta tinjauan finansial atau saran penyesuaian budget berdasarkan data yang tersedia di akunmu.",proof6Title:"Pantau utang dan cicilan sebelum jatuh tempo",proof6Body:"Pantau sisa utang, rencana pembayaran bulanan, bunga, dan tanggal jatuh tempo.",proof7Title:"Satu foto. Banyak struk. Sekali scan.",proof7Body:"Baca hingga 10 struk dalam satu foto, atau unggah hingga 10 foto dalam satu kali scan. Tinjau semua hasil di Draft List, lalu simpan semuanya sekaligus.",pricingEyebrow:"HARGA YANG SEDERHANA & TRANSPARAN",pricingTitle:"Mulai dengan kejelasan.<br><span style='color:#8c7a60'>Berkembang saat siap.</span>",pricingIntro:"Mulai gratis untuk mencatat dan mengatur keuangan. Pilih Pro saat kamu membutuhkan analitik lebih dalam, portfolio investasi, laporan PDF, dan Travel Mode. Paket tahunan menghemat sekitar 15% dibanding pembayaran bulanan.",monthly:"Bulanan",yearly:"Tahunan",saveLabel:"HEMAT",freeDesc:"Semua kebutuhan dasar untuk mulai memahami uangmu.",forever:"selamanya",freeCta:"Mulai dengan Free",free1:"Transaksi, akun, dan saldo",free2:"Budget, recurring, utang & piutang",free3:"Saving Goals & Investment Plan",free4:"Basic Analytics & Financial Health",free5:"Shared AI credit allowance untuk Scan Receipt, Split Bill, Voice Add, dan Ask Revi",free6:"IDR & USD",proDesc:"Pahami pola keuangan lebih dalam dengan analitik lanjutan, portfolio aktual, dan laporan yang bisa dibawa ke mana saja.",proCta:"Jelajahi Pro",pro1:"Semua fitur Free",pro2:"Investment Portfolio",pro3:"Advanced Analytics, insight lanjutan & PDF reports",pro4:"Kuota AI bersama yang lebih besar",pro5:"Travel Mode & full multi-currency",pro6:"PDF reports & account history graph",pricingFoot:"Pro Indonesia: Rp39.000/bulan atau Rp399.000/tahun. International: $7.99/month atau $79.99/year. AI credits digunakan bersama untuk Scan Receipt, Split Bill, Voice Add, dan Ask Revi. Langganan dikelola melalui aplikasi.",
-faqEyebrow:"PERTANYAAN YANG WAJAR",faqTitle:"Kejelasan dimulai<br>dari hal mendasar.",faqIntro:"Hal yang perlu kamu ketahui sebelum mulai menggunakan REVINANCE.",q1:"Apa itu REVINANCE?",a1:"REVINANCE adalah aplikasi personal finance yang membantu mencatat transaksi, memahami pola pengeluaran, merencanakan budget, dan melihat gambaran finansial secara lebih utuh.",q2:"Apakah harus berlangganan untuk mulai?",a2:"Tidak. Free menyediakan fitur dasar untuk transaksi, akun, budget, goals, dan analitik dasar. Pro membuka tools lanjutan seperti portfolio, Travel Mode, laporan PDF, dan kuota AI lebih besar.",q3:"Apa bedanya Investment Plan dan Portfolio?",a3:"Investment Plan digunakan untuk merencanakan alokasi investasi. Portfolio digunakan untuk melacak kepemilikan aset aktual dan performanya, dan termasuk fitur Pro.",q4:"Apakah REVINANCE memberikan nasihat investasi?",a4:"REVINANCE membantu mengorganisasi dan memahami data finansial. Insight yang ditampilkan bukan jaminan hasil dan tidak menggantikan penilaian pribadi atau nasihat profesional.",q5:"Apakah website ini sudah terhubung ke akun dan pembayaran?",a5:"Website ini adalah halaman pengenalan REVINANCE; angka pada visual dashboard hanya ilustrasi, bukan data pengguna nyata. Tombol Jelajahi Pro akan tersedia setelah integrasi pembayaran aktif. Pengelolaan akun dan langganan dilakukan di aplikasi.",
-closingEyebrow:"BAB BERIKUTNYA",closingTitle:"Buat uang terasa<br><span class='gold'>lebih sederhana.</span>",closingBody:"Mulai dari memahami kondisi sekarang. Lalu tentukan langkah berikutnya dengan lebih percaya diri.",closingCta:"Temukan plan-mu",footerCopy:"© 2026 REVINANCE. Lacak lebih sedikit. Pahami lebih banyak."
+proofIndex1:"01 / KEJELASAN HARIAN",proofIndex2:"02 / ANALITIK",proofIndex3:"03 / KESEHATAN FINANSIAL",proofIndex4:"04 / MODE PERJALANAN",proofIndex5:"05 / TANYA REVI",proofIndex6:"06 / KELOLA UTANG",proofIndex7:"08 / AI SCAN BANYAK STRUK",proofIndex8:"07 / RENCANA ALOKASI",proof8Title:"Tentukan tujuan untuk setiap bagian pemasukan",proof8Body:"Atur alokasi Savings, Needs, dan Wants, sesuaikan persentasenya, lalu pantau progres aktual dibanding rencana.",proofEyebrow:"LIHAT LANGSUNG DI APLIKASI",proofTitle:"Dirancang untuk kondisi keuangan nyata.<br><span class=gold>Lihat REVINANCE bekerja.</span>",proofIntro:"Jelajahi tampilan asli aplikasi—mulai dari gambaran uang harian hingga analitik, pengeluaran perjalanan, dan pengelolaan utang.",proof1Title:"Ketahui uang yang aman dipakai",proof1Body:"Lihat dana yang tersedia, peringatan budget, aktivitas harian, dan tagihan mendatang di satu tempat.",proof2Title:"Pahami pola keuanganmu",proof2Body:"Tinjau tren bulanan, bandingkan pemasukan dan pengeluaran, dan kenali perubahan dari waktu ke waktu.",proof3Title:"Lihat gambaran finansial yang lebih utuh",proof3Body:"Satukan financial health score dengan pemasukan, pengeluaran, utang yang dibayar, investasi, dan kas tersedia.",proof4Title:"Jaga pengeluaran perjalanan tetap terarah",proof4Body:"Pisahkan budget perjalanan, scan struk dalam 20 mata uang, dan lihat konversi otomatis ke mata uang utama akunmu.",proof5Title:"Tanyakan kondisi keuanganmu kepada Revi",proof5Body:"Minta tinjauan finansial atau saran penyesuaian budget berdasarkan data yang tersedia di akunmu.",proof6Title:"Pantau utang dan cicilan sebelum jatuh tempo",proof6Body:"Pantau sisa utang, rencana pembayaran bulanan, bunga, dan tanggal jatuh tempo.",proof7Title:"Satu foto. Banyak struk. Sekali scan.",proof7Body:"Baca hingga 10 struk dalam satu foto, atau unggah hingga 10 foto dalam satu kali scan. Tinjau semua hasil di Draft List, lalu simpan semuanya sekaligus.",pricingEyebrow:"HARGA YANG SEDERHANA & TRANSPARAN",pricingTitle:"Mulai dengan kejelasan.<br><span style='color:#8c7a60'>Berkembang saat siap.</span>",pricingIntro:"Mulai gratis untuk mencatat dan mengatur keuangan. Pilih Pro saat kamu membutuhkan analitik lebih dalam, portfolio investasi, laporan PDF, dan Travel Mode. Paket tahunan menghemat sekitar 15% dibanding pembayaran bulanan.",monthly:"Bulanan",yearly:"Tahunan",saveLabel:"HEMAT",freeDesc:"Semua kebutuhan dasar untuk mulai memahami uangmu.",forever:"selamanya",freeCta:"Mulai dengan Free",free1:"Transaksi, akun, dan saldo",free2:"Budget, recurring, utang & piutang",free3:"Saving Goals & Investment Plan",free4:"Basic Analytics & Financial Health",free5:"Shared AI credit allowance untuk Scan Receipt, Split Bill, Voice Add, dan Ask Revi",free6:"IDR & USD",proDesc:"Pahami pola keuangan lebih dalam dengan analitik lanjutan, portfolio aktual, dan laporan yang bisa dibawa ke mana saja.",proCta:"Pilih Pro",pro1:"Semua fitur Free",pro2:"Investment Portfolio",pro3:"Advanced Analytics, insight lanjutan & PDF reports",pro4:"Kuota AI bersama yang lebih besar",pro5:"Travel Mode & full multi-currency",pro6:"PDF reports & account history graph",pricingFoot:"Pro Indonesia: Rp39.000/bulan atau Rp399.000/tahun. International: $7.99/month atau $79.99/year. AI credits digunakan bersama untuk Scan Receipt, Split Bill, Voice Add, dan Ask Revi. Langganan dikelola melalui aplikasi.",
+faqEyebrow:"PERTANYAAN YANG WAJAR",faqTitle:"Kejelasan dimulai<br>dari hal mendasar.",faqIntro:"Hal yang perlu kamu ketahui sebelum mulai menggunakan REVINANCE.",q1:"Apa itu REVINANCE?",a1:"REVINANCE adalah aplikasi personal finance yang membantu mencatat transaksi, memahami pola pengeluaran, merencanakan budget, dan melihat gambaran finansial secara lebih utuh.",q2:"Apakah harus berlangganan untuk mulai?",a2:"Tidak. Free menyediakan fitur dasar untuk transaksi, akun, budget, goals, dan analitik dasar. Pro membuka tools lanjutan seperti portfolio, Travel Mode, laporan PDF, dan kuota AI lebih besar.",q3:"Apa bedanya Investment Plan dan Portfolio?",a3:"Investment Plan digunakan untuk merencanakan alokasi investasi. Portfolio digunakan untuk melacak kepemilikan aset aktual dan performanya, dan termasuk fitur Pro.",q4:"Apakah REVINANCE memberikan nasihat investasi?",a4:"REVINANCE membantu mengorganisasi dan memahami data finansial. Insight yang ditampilkan bukan jaminan hasil dan tidak menggantikan penilaian pribadi atau nasihat profesional.",q5:"Bagaimana cara mulai menggunakan REVINANCE?",a5:"Pilih Free untuk membuat akun tanpa biaya melalui halaman daftar/masuk. Jika membutuhkan fitur Pro, pilih periode bulanan atau tahunan di halaman harga; proses checkout dan pembayaran dilanjutkan di aplikasi. Pembayaran Pro diproses melalui Midtrans dan langganan diperpanjang secara manual.",
+closingEyebrow:"BAB BERIKUTNYA",closingTitle:"Buat uang terasa<br><span class='gold'>lebih sederhana.</span>",closingBody:"Mulai dari memahami kondisi sekarang. Lalu tentukan langkah berikutnya dengan lebih percaya diri.",closingCta:"Temukan plan-mu",footerCopy:"© 2026 REVINANCE. Lacak lebih sedikit. Pahami lebih banyak.",footerTerms:"Ketentuan Layanan",footerPrivacy:"Kebijakan Privasi"
 },
 en:{
 painEyebrow:"COMMON MONEY PROBLEMS WE HELP SOLVE",painTitle:"Why money problems<br><span class='gold'>keep repeating.</span>",painIntro:"Scattered records, unclear goals, and small expenses can turn everyday money decisions into lasting stress.",painArtToday:"TODAY'S SPENDING",painArtGoal:"SAVING GOAL",painArtTarget:"Emergency fund",painArtOver:"Overspending",painArtBills:"Bills due",painArtNoPlan:"No clear plan",painArtNeeds:"Needs",painArtWants:"Wants",painArtGoals:"Goals",pain1Title:"Money disappears fast.",pain1Body:"Spending feels small until your balance drops and you cannot explain where it went.",pain2Title:"Your money data is scattered.",pain2Body:"Transactions live across receipts, bank apps, and notes—with no single clear picture.",pain3Title:"Goals keep moving further away.",pain3Body:"Without a clear target and timeline, saving is easy to postpone.",pain4Title:"Money stress keeps building.",pain4Body:"Unclear budgets and obligations can add uncertainty, pressure, and less peace of mind.",pain5Title:"Small bills become big leaks.",pain5Body:"Recurring payments and forgotten expenses quietly reduce your room to spend.",pain6Title:"It is hard to know what comes next.",pain6Body:"When records are disconnected, turning information into a confident next step takes more work.",compareEyebrow:"LESS ADMIN. MORE CLARITY.",compareTitle:"A simpler way to manage<br><span class='gold'>your whole money picture.</span>",compareIntro:"Compare a connected finance system with building your own spreadsheets or using a basic expense tracker.",compareFeature:"WHAT YOU NEED",compareAllInOne:"Connected finance system",compareSheet:"Spreadsheet",compareBasic:"Basic expense tracker",compareRow1:"Fast capture (receipt, voice, split bill)",compareManual:"Manual setup / entry",compareVaries:"Depends on the app",compareRow2:"Budgets & safe-to-spend",compareBuild:"Build your own formulas",compareBasicBudget:"Often basic budgets",compareRow3:"AI context with Ask Revi",compareSeparate:"Separate tools / manual analysis",compareDepends:"Depends on the app",compareRow4:"Goals, debt & recurring payments",compareRow5:"Analytics & downloadable reports",compareLimited:"Often limited",compareRow6:"Investment Plan + actual portfolio",compareRow7:"Travel mode & multi-currency",compareRow8:"Multi-receipt AI scan",compareScanAdvantage:"Up to 10 receipts/photo + 10 photos/scan",compareScanSheet:"Manual upload and entry",compareScanBasic:"Often one receipt per scan",compareNote:"Receipt scanning limits vary by product. This is a general workflow comparison, not a universal claim about every competitor.",
@@ -1353,13 +1589,13 @@ flow1Title:"Track with ease",flow1Body:"Manual entry, receipt scan, voice, or sp
 featuresEyebrow:"BUILT AROUND REAL LIFE",featuresTitle:"Everything connected.<br><span class='gold'>Nothing overwhelming.</span>",featuresIntro:"Connected tools to help you track, understand, plan, and build more intentional financial decisions.",f1Title:"A complete financial picture",f1Body:"Transactions, accounts and balances, income, expenses, budgets, recurring transactions, debts, installments, and receivables come together in one ledger.",f2Title:"Flexible Transaction Capture",f2Body:"Add transactions manually, use Voice Add, or split shared bills. Choose the quickest way to keep your ledger up to date.",f3Title:"Ask Revi",f3Body:"Ask about spending patterns, changes in activity, financial summaries, or budget progress using the financial data available.",f4Title:"Budget & Safe-to-Spend",f4Body:"Track category budgets and understand your available spending room to make more intentional day-to-day decisions.",f5Title:"Saving Goals & Financial Review",f5Body:"Set savings targets, follow progress, review your financial health score, and recognize patterns over time.",f6Title:"Investment Plan & Portfolio",f6Body:"Use Investment Plan for intended allocations. Pro Portfolio tracks assets you actually hold and supported value and profit/loss data.",f7Title:"Advanced Analytics & Reports",f7Body:"Compare periods, understand spending drivers and behavioral patterns, and download PDF financial reports with Pro.",f8Title:"Multi-currency & Travel Mode",f8Body:"Use supported transaction currencies, view converted summaries in your display currency, and organize trip budgets and expenses.",f9Title:"Debt & Receivable Reminders",f9Body:"Set reminders from 7 days before a due date through the due day, so installments, debts, and money owed to you are easier to follow up.",f10Title:"Multi-Receipt AI Scan",f10Body:"Scan up to 10 receipts in one photo, or upload up to 10 photos in a single scan. Review the results in the Draft List and save them all together.",tagMultiScan:"TRACK · MULTI-RECEIPT AI SCAN",scanPoint1:"in one photo",scanPoint2:"in one scan",scanPoint3:"review and save everything together",currencyEyebrow:"SUPPORTED CURRENCIES",currencyTitle:"One ledger.<br><span class=gold>Multiple currencies.</span>",currencyBody:"Track supported currencies for everyday spending and travel, with each currency clearly identified.",reminderLabel:"UPCOMING",reminderWindow:"D−7 → DUE TODAY",reminderOverdue:"OVERDUE · RECEIVABLE",reminderLate:"1 day overdue",reminderDue:"UPCOMING · INSTALLMENT",reminderTomorrow:"Due tomorrow",reminderFoot:"Adjustable reminders before the due date",tagReminders:"TRACK · DUE DATE REMINDERS",tagCore:"TRACK · FINANCIAL RECORDS",tagCapture:"TRACK · LESS FRICTION",tagAssistant:"UNDERSTAND · CONTEXTUAL AI",tagPlanning:"PLAN · DAILY DECISIONS",tagReview:"PLAN · REVIEW",tagBuild:"PLAN → BUILD",tagAdvanced:"BUILD · PRO INSIGHTS",tagTravel:"BUILD · PRO TRAVEL",tagPro:"PRO FEATURE",tagClarity:"CLARITY",
 insightEyebrow:"FROM RECORDS TO UNDERSTANDING",insightTitle:"Numbers tell you what happened.<br><span class='gold'>Context helps you decide.</span>",insightBody:"REVINANCE connects your activity, plans, and financial habits so you don't just see numbers—you understand what they mean for your next move.",insight1Title:"A more complete picture",insight1Body:"Read balances, cash flow, budgets, and obligations as one story.",insight2Title:"Understand what changed",insight2Body:"Compare activity and recognize patterns based on the data available.",insight3Title:"From understanding to a plan",insight3Body:"Use what you learn to choose a more intentional next step.",
 intelligenceEyebrow:"FROM DATA TO DECISIONS",intelligenceTitle:"Don't just see where money goes.<br><span class='gold'>Understand what to do next.</span>",intelligenceIntro:"REVINANCE connects patterns, obligations, and financial goals to help make your next step clearer.",intelligence1Title:"Understand spending patterns",intelligence1Body:"See changes across activity and categories based on the records available.",intelligence2Title:"Stay ahead of obligations",intelligence2Body:"Keep upcoming bills and receivables visible so you know what needs attention.",intelligence3Title:"Plan your next move",intelligence3Body:"Use budgets, Safe-to-Spend, and saving goals to make more intentional decisions.",intelligenceNote:"Illustrative examples. Insights depend on the data available in your account.",
-proofEyebrow:"INSIDE THE APP",proofIndex1:"01 / DAILY CLARITY",proofIndex2:"02 / ANALYTICS",proofIndex3:"03 / FINANCIAL HEALTH",proofIndex4:"04 / TRAVEL MODE",proofIndex5:"05 / ASK REVI",proofIndex6:"06 / DEBT & INSTALLMENTS",proofIndex7:"08 / MULTI-RECEIPT AI SCAN",proofIndex8:"07 / ALLOCATION PLAN",proof8Title:"Give every part of your income a purpose",proof8Body:"Set your Savings, Needs, and Wants allocation, adjust the ratios, and track actual progress against your plan.",proofTitle:"Built for your real financial life.<br><span class=gold>See REVINANCE in action.</span>",proofIntro:"Explore real screens from the app—from daily money clarity to deeper analysis, travel spending, and debt management.",proof1Title:"Know what is safe to spend",proof1Body:"See available spending room, budget alerts, daily activity, and upcoming bills in one place.",proof2Title:"Understand your money patterns",proof2Body:"Review monthly trends, compare income and expenses, and identify changes over time.",proof3Title:"See the bigger financial picture",proof3Body:"Bring your financial health score together with income, expenses, debt paid, investments, and available cash.",proof4Title:"Keep trip spending on track",proof4Body:"Separate trip spending, scan receipts in 20 currencies, and see amounts automatically converted to your account display currency.",proof5Title:"Ask questions about your finances",proof5Body:"Ask for a financial review or practical budget adjustments based on the data available in your account.",proof6Title:"Stay ahead of debt and installments",proof6Body:"Track outstanding balances, monthly payment plans, interest, and due dates.",proof7Title:"One photo. Multiple receipts. One scan.",proof7Body:"Read up to 10 receipts in a single photo, or upload up to 10 photos in one scan. Review every result in the Draft List, then save them all together.",pricingEyebrow:"SIMPLE, TRANSPARENT PRICING",pricingTitle:"Start with clarity.<br><span style='color:#8c7a60'>Grow when you're ready.</span>",pricingIntro:"Start free to track and organize your money. Choose Pro when you need deeper analytics, an investment portfolio, PDF reports, and Travel Mode. Annual billing saves around 15% compared with monthly payments.",monthly:"Monthly",yearly:"Yearly",saveLabel:"SAVE",freeDesc:"The essentials to start understanding your money.",forever:"forever",freeCta:"Start with Free",free1:"Transactions, accounts, and balances",free2:"Budgets, recurring, debts & receivables",free3:"Saving Goals & Investment Plan",free4:"Basic Analytics & Financial Health",free5:"Shared AI allowance for Scan Receipt, Split Bill, Voice Add, and Ask Revi",free6:"IDR & USD",proDesc:"Understand your finances more deeply with advanced analytics, an actual asset portfolio, and reports you can take with you.",proCta:"Explore Pro",pro1:"Everything in Free",pro2:"Investment Portfolio",pro3:"Advanced Analytics, deeper insights & PDF reports",pro4:"Higher shared AI allowance",pro5:"Travel Mode & full multi-currency",pro6:"PDF reports & account history graph",pricingFoot:"Indonesia Pro: Rp39,000/month or Rp399,000/year. International: $7.99/month or $79.99/year. AI credits are shared across Scan Receipt, Split Bill, Voice Add, and Ask Revi. Subscriptions are managed in the app.",
-faqEyebrow:"GOOD QUESTIONS",faqTitle:"Clarity starts<br>with the basics.",faqIntro:"A few things to know before getting started with REVINANCE.",q1:"What is REVINANCE?",a1:"REVINANCE is a personal finance app that helps you track transactions, understand spending patterns, plan budgets, and see your financial picture more clearly.",q2:"Do I need a subscription to get started?",a2:"No. Free includes essentials for transactions, accounts, budgets, goals, and basic analytics. Pro unlocks advanced tools such as Portfolio, Travel Mode, PDF reports, and a larger AI allowance.",q3:"What's the difference between Investment Plan and Portfolio?",a3:"Investment Plan helps you plan investment allocations. Portfolio tracks actual asset holdings and their performance, and is a Pro feature.",q4:"Does REVINANCE provide investment advice?",a4:"REVINANCE helps organize and understand financial data. Insights are not guarantees and do not replace personal judgment or professional advice.",q5:"Is this website connected to accounts and payments yet?",a5:"This website introduces REVINANCE; dashboard figures are illustrative, not real user data. The Explore Pro button will be available once payment integration is active. Account and subscription management take place in the app.",
-closingEyebrow:"YOUR NEXT CHAPTER",closingTitle:"Make money feel<br><span class='gold'>less complicated.</span>",closingBody:"Start by understanding where you are today. Then choose your next step with more confidence.",closingCta:"Find your plan",footerCopy:"© 2026 REVINANCE. Your money. Understood."
+proofEyebrow:"INSIDE THE APP",proofIndex1:"01 / DAILY CLARITY",proofIndex2:"02 / ANALYTICS",proofIndex3:"03 / FINANCIAL HEALTH",proofIndex4:"04 / TRAVEL MODE",proofIndex5:"05 / ASK REVI",proofIndex6:"06 / DEBT & INSTALLMENTS",proofIndex7:"08 / MULTI-RECEIPT AI SCAN",proofIndex8:"07 / ALLOCATION PLAN",proof8Title:"Give every part of your income a purpose",proof8Body:"Set your Savings, Needs, and Wants allocation, adjust the ratios, and track actual progress against your plan.",proofTitle:"Built for your real financial life.<br><span class=gold>See REVINANCE in action.</span>",proofIntro:"Explore real screens from the app—from daily money clarity to deeper analysis, travel spending, and debt management.",proof1Title:"Know what is safe to spend",proof1Body:"See available spending room, budget alerts, daily activity, and upcoming bills in one place.",proof2Title:"Understand your money patterns",proof2Body:"Review monthly trends, compare income and expenses, and identify changes over time.",proof3Title:"See the bigger financial picture",proof3Body:"Bring your financial health score together with income, expenses, debt paid, investments, and available cash.",proof4Title:"Keep trip spending on track",proof4Body:"Separate trip spending, scan receipts in 20 currencies, and see amounts automatically converted to your account display currency.",proof5Title:"Ask questions about your finances",proof5Body:"Ask for a financial review or practical budget adjustments based on the data available in your account.",proof6Title:"Stay ahead of debt and installments",proof6Body:"Track outstanding balances, monthly payment plans, interest, and due dates.",proof7Title:"One photo. Multiple receipts. One scan.",proof7Body:"Read up to 10 receipts in a single photo, or upload up to 10 photos in one scan. Review every result in the Draft List, then save them all together.",pricingEyebrow:"SIMPLE, TRANSPARENT PRICING",pricingTitle:"Start with clarity.<br><span style='color:#8c7a60'>Grow when you're ready.</span>",pricingIntro:"Start free to track and organize your money. Choose Pro when you need deeper analytics, an investment portfolio, PDF reports, and Travel Mode. Annual billing saves around 15% compared with monthly payments.",monthly:"Monthly",yearly:"Yearly",saveLabel:"SAVE",freeDesc:"The essentials to start understanding your money.",forever:"forever",freeCta:"Start with Free",free1:"Transactions, accounts, and balances",free2:"Budgets, recurring, debts & receivables",free3:"Saving Goals & Investment Plan",free4:"Basic Analytics & Financial Health",free5:"Shared AI allowance for Scan Receipt, Split Bill, Voice Add, and Ask Revi",free6:"IDR & USD",proDesc:"Understand your finances more deeply with advanced analytics, an actual asset portfolio, and reports you can take with you.",proCta:"Choose Pro",pro1:"Everything in Free",pro2:"Investment Portfolio",pro3:"Advanced Analytics, deeper insights & PDF reports",pro4:"Higher shared AI allowance",pro5:"Travel Mode & full multi-currency",pro6:"PDF reports & account history graph",pricingFoot:"Indonesia Pro: Rp39,000/month or Rp399,000/year. International: $7.99/month or $79.99/year. AI credits are shared across Scan Receipt, Split Bill, Voice Add, and Ask Revi. Subscriptions are managed in the app.",
+faqEyebrow:"GOOD QUESTIONS",faqTitle:"Clarity starts<br>with the basics.",faqIntro:"A few things to know before getting started with REVINANCE.",q1:"What is REVINANCE?",a1:"REVINANCE is a personal finance app that helps you track transactions, understand spending patterns, plan budgets, and see your financial picture more clearly.",q2:"Do I need a subscription to get started?",a2:"No. Free includes essentials for transactions, accounts, budgets, goals, and basic analytics. Pro unlocks advanced tools such as Portfolio, Travel Mode, PDF reports, and a larger AI allowance.",q3:"What's the difference between Investment Plan and Portfolio?",a3:"Investment Plan helps you plan investment allocations. Portfolio tracks actual asset holdings and their performance, and is a Pro feature.",q4:"Does REVINANCE provide investment advice?",a4:"REVINANCE helps organize and understand financial data. Insights are not guarantees and do not replace personal judgment or professional advice.",q5:"How do I get started with REVINANCE?",a5:"Choose Free to create an account at no cost through the sign-up/login page. If you need Pro features, choose monthly or yearly billing on the pricing section; checkout and payment continue in the app. Pro payments are processed by Midtrans and subscriptions renew manually.",
+closingEyebrow:"YOUR NEXT CHAPTER",closingTitle:"Make money feel<br><span class='gold'>less complicated.</span>",closingBody:"Start by understanding where you are today. Then choose your next step with more confidence.",closingCta:"Find your plan",footerCopy:"© 2026 REVINANCE. Your money. Understood.",footerTerms:"Terms of Service",footerPrivacy:"Privacy Policy"
 }};
 let language="id",billing="monthly";
 function applyLanguage(next){language=next;document.documentElement.lang=next;document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(copy[next][key]!==undefined)el.textContent=copy[next][key]});document.querySelectorAll("[data-i18n-html]").forEach(el=>{const key=el.dataset.i18nHtml;if(copy[next][key]!==undefined)el.innerHTML=copy[next][key]});document.querySelectorAll("#comparison .comparison-table tbody tr > td:last-child").forEach(cell=>{cell.style.setProperty("text-align","center","important");cell.style.setProperty("text-align-last","center","important");});const basicHeader=document.querySelector(".comparison-table thead th.compare-basic-heading");if(basicHeader){basicHeader.style.setProperty("text-align","center","important");basicHeader.style.setProperty("vertical-align","middle","important");const basicLabel=basicHeader.querySelector("[data-i18n=\"compareBasic\"]");if(basicLabel){basicLabel.style.setProperty("display","block","important");basicLabel.style.setProperty("width","100%","important");basicLabel.style.setProperty("text-align","center","important");basicLabel.style.setProperty("box-sizing","border-box","important");}}document.querySelectorAll("#langToggle [data-language]").forEach(btn=>{const active=btn.dataset.language===next;btn.classList.toggle("active",active);btn.setAttribute("aria-pressed",String(active))});document.getElementById("langToggle").setAttribute("aria-label",next==="id"?"Bahasa Indonesia aktif":"English active");document.querySelectorAll("[data-billing]").forEach(btn=>btn.classList.toggle("active",btn.dataset.billing===billing));updatePrice()}
-function updatePrice(){const free=document.querySelector("[data-price-free]"),pro=document.querySelector("[data-price-pro]"),period=document.querySelector("[data-price-period]"),note=document.querySelector("[data-price-note]");if(language==="id"){free.textContent="Rp0";pro.textContent=billing==="monthly"?"Rp39.000":"Rp399.000";period.textContent=billing==="monthly"?"/ bulan":"/ tahun";note.textContent=billing==="monthly"?"atau Rp399.000 / tahun":"setara Rp33.250 / bulan"}else{free.textContent="$0";pro.textContent=billing==="monthly"?"$7.99":"$79.99";period.textContent=billing==="monthly"?"/ month":"/ year";note.textContent=billing==="monthly"?"or $79.99 / year":"equivalent to $6.67 / month"}}
+function updatePrice(){const free=document.querySelector("[data-price-free]"),pro=document.querySelector("[data-price-pro]"),period=document.querySelector("[data-price-period]"),note=document.querySelector("[data-price-note]"),proCta=document.querySelector("[data-pro-cta]");if(proCta)proCta.href="https://app.revinance.app/?plan=pro&period="+billing;if(language==="id"){free.textContent="Rp0";pro.textContent=billing==="monthly"?"Rp39.000":"Rp399.000";period.textContent=billing==="monthly"?"/ bulan":"/ tahun";note.textContent=billing==="monthly"?"atau Rp399.000 / tahun":"setara Rp33.250 / bulan"}else{free.textContent="$0";pro.textContent=billing==="monthly"?"$7.99":"$79.99";period.textContent=billing==="monthly"?"/ month":"/ year";note.textContent=billing==="monthly"?"or $79.99 / year":"equivalent to $6.67 / month"}}
 document.querySelectorAll("#langToggle [data-language]").forEach(btn=>btn.addEventListener("click",()=>applyLanguage(btn.dataset.language)));
 document.querySelectorAll("[data-billing]").forEach(btn=>btn.addEventListener("click",()=>{billing=btn.dataset.billing;updatePrice();document.querySelectorAll("[data-billing]").forEach(b=>b.classList.toggle("active",b===btn))}));
 const nav=document.getElementById("nav");const navScroll=()=>nav.classList.toggle("scrolled",window.scrollY>18);window.addEventListener("scroll",navScroll,{passive:true});navScroll();
